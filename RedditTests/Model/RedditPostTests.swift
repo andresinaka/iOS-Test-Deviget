@@ -16,7 +16,7 @@ class RedditPostTests: XCTestCase {
         let redditPost = try? JSONDecoder.reddit.decode(RedditPost.self, from: data)
 
         XCTAssertEqual(redditPost?.title, "Sticky bun for you!")
-        XCTAssertEqual(redditPost?.authorFullname, "t2_2j0jvvvq")
+        XCTAssertEqual(redditPost?.author, "rnielsen776")
         XCTAssertEqual(redditPost?.createdUTC, Date(timeIntervalSince1970: 1590015768))
         XCTAssertEqual(redditPost?.numComments, 1365)
         XCTAssertEqual(redditPost?.thumbnailURL?.absoluteString, "https://b.thumbs.redditmedia.com/t9DyS4JczF4Jpv2IvIciWK9EOHCrSqiTEKc0y-iVoTw.jpg")

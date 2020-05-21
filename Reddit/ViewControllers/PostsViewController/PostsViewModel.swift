@@ -10,14 +10,16 @@ import Foundation
 
 protocol PostsViewModelProtocol {
     func fetchPosts()
-    var posts: Observable<[RedditPost]> { get }
+    var postCellViewModels: Observable<[PostCellViewModel]> { get }
+    var title: Observable<String> { get }
 }
 
-final class PostsViewModel: ObservableObject, PostsViewModelProtocol {
+final class PostsViewModel: PostsViewModelProtocol {
+    var title = Observable("Reddit Posts")
 
     private var apiService: ApiServiceProtocol
 
-    var posts: Observable<[RedditPost]> = Observable([])
+    var postCellViewModels: Observable<[PostCellViewModel]> = Observable([])
 
     init(apiService: ApiServiceProtocol) {
         self.apiService = apiService
@@ -27,7 +29,10 @@ final class PostsViewModel: ObservableObject, PostsViewModelProtocol {
         apiService.execute(type: RedditTopResponse.self, request: Request.reddit(after: "", limit: 10)) { [weak self] result in
             switch result {
             case .success(let topResponse):
-                self?.posts.value = []
+                guard let apiService = self?.apiService else { return }
+                self?.postCellViewModels.value = topResponse?.posts.map { redditPost -> PostCellViewModel in
+                    PostCellViewModel(apiService: apiService, post: redditPost)
+                } ?? []
             case .failure(let error):
                 print("FAILURE")
             }
