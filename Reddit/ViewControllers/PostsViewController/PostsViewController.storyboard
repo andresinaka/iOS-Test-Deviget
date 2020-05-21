@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Posts View Controller-->
+        <scene sceneID="YFO-zb-XfP">
+            <objects>
+                <viewController storyboardIdentifier="PostsViewControllerID" id="vd4-GS-tbP" customClass="PostsViewController" customModule="Reddit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d8V-CB-DJ5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mNc-4U-tzM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="92" id="iNl-KK-H0f" customClass="PostCell" customModule="Reddit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iNl-KK-H0f" id="51f-VQ-AjH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0i-6L-NwG">
+                                                    <rect key="frame" x="10" y="10" width="394" height="72"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Y0i-6L-NwG" secondAttribute="trailing" constant="10" id="b0A-fK-M2p"/>
+                                                <constraint firstItem="Y0i-6L-NwG" firstAttribute="top" secondItem="51f-VQ-AjH" secondAttribute="top" constant="10" id="diD-AZ-L5H"/>
+                                                <constraint firstAttribute="bottom" secondItem="Y0i-6L-NwG" secondAttribute="bottom" constant="10" id="evj-VC-2Hk"/>
+                                                <constraint firstItem="Y0i-6L-NwG" firstAttribute="leading" secondItem="51f-VQ-AjH" secondAttribute="leading" constant="10" id="phf-3b-sWY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SDz-e5-gPh" firstAttribute="trailing" secondItem="mNc-4U-tzM" secondAttribute="trailing" id="UKe-K3-2Dr"/>
+                            <constraint firstItem="SDz-e5-gPh" firstAttribute="bottom" secondItem="mNc-4U-tzM" secondAttribute="bottom" id="fju-0G-PI5"/>
+                            <constraint firstItem="mNc-4U-tzM" firstAttribute="leading" secondItem="SDz-e5-gPh" secondAttribute="leading" id="ruL-v4-TdG"/>
+                            <constraint firstItem="mNc-4U-tzM" firstAttribute="top" secondItem="SDz-e5-gPh" secondAttribute="top" id="vz0-J8-2S2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SDz-e5-gPh"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="mNc-4U-tzM" id="zX5-VK-1iM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eno-cf-b7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52.173913043478265" y="6.5217391304347831"/>
+        </scene>
+    </scenes>
+</document>

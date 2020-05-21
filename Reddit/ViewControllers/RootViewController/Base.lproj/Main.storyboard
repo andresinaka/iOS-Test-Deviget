@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hrc-FH-c8K">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="L61-Vh-qM6">
+            <objects>
+                <navigationController id="hrc-FH-c8K" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="723-z3-ZZc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dn4-4c-aBi" kind="relationship" relationship="rootViewController" id="vAY-oq-qf8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1X-j7-NXE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-865" y="78"/>
+        </scene>
+        <!--PostsViewControllerID-->
+        <scene sceneID="QMh-wG-Ko7">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HUg-yw-6gJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="PostsViewController" referencedIdentifier="PostsViewControllerID" id="dn4-4c-aBi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Vju-q8-lSd"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="-183" y="78"/>
+        </scene>
+    </scenes>
+</document>
