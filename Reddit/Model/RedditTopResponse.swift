@@ -21,7 +21,6 @@ extension RedditTopResponse: Decodable {
         posts = try data.decode([RedditPost].self, forKey: .children)
     }
 
-
     enum MainContainerCodingKeys: String, CodingKey {
         case after
         case posts

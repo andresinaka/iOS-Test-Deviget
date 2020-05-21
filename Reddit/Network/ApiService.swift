@@ -46,7 +46,7 @@ struct ApiService: ApiServiceProtocol {
             }
 
             do {
-                let decoder = JSONDecoder()
+                let decoder = JSONDecoder.reddit
                 let decodedObject = try decoder.decode(type, from: data)
                 completion(Result.success(decodedObject))
             } catch {
