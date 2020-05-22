@@ -19,6 +19,7 @@ class RedditPostTests: XCTestCase {
         XCTAssertEqual(redditPost?.author, "rnielsen776")
         XCTAssertEqual(redditPost?.createdUTC, Date(timeIntervalSince1970: 1590015768))
         XCTAssertEqual(redditPost?.numComments, 1365)
+        XCTAssertEqual(redditPost?.postHint, RedditPost.PostHint.notSupported)
         XCTAssertEqual(redditPost?.thumbnailURL?.absoluteString, "https://b.thumbs.redditmedia.com/t9DyS4JczF4Jpv2IvIciWK9EOHCrSqiTEKc0y-iVoTw.jpg")
     }
 

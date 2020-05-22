@@ -36,6 +36,8 @@
 		E0C151D924773EFA00A14609 /* PostCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151D824773EFA00A14609 /* PostCellViewModelTests.swift */; };
 		E0C151DB247740D100A14609 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151DA247740D100A14609 /* Date.swift */; };
 		E0C151DE24776A2E00A14609 /* ApiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151DD24776A2E00A14609 /* ApiServiceMock.swift */; };
+		E0C151E02477851000A14609 /* PostDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151DF2477851000A14609 /* PostDetailViewModelTests.swift */; };
+		E0C151E52478251C00A14609 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151E42478251C00A14609 /* PersistenceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		E0C151D824773EFA00A14609 /* PostCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModelTests.swift; sourceTree = "<group>"; };
 		E0C151DA247740D100A14609 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E0C151DD24776A2E00A14609 /* ApiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceMock.swift; sourceTree = "<group>"; };
+		E0C151DF2477851000A14609 /* PostDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModelTests.swift; sourceTree = "<group>"; };
+		E0C151E42478251C00A14609 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 				E0C151A92475F11200A14609 /* Model */,
 				E0C151A02475ECB500A14609 /* ViewControllers */,
 				E0C151AD2476063700A14609 /* Network */,
+				E0C151E32478249800A14609 /* Persistence */,
 				E0C151782475E31800A14609 /* AppDelegate.swift */,
 				E0C1517A2475E31800A14609 /* SceneDelegate.swift */,
 				E0C151812475E31B00A14609 /* Assets.xcassets */,
@@ -257,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C151D824773EFA00A14609 /* PostCellViewModelTests.swift */,
+				E0C151DF2477851000A14609 /* PostDetailViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -267,6 +273,14 @@
 				E0C151DD24776A2E00A14609 /* ApiServiceMock.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		E0C151E32478249800A14609 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E0C151E42478251C00A14609 /* PersistenceService.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +399,7 @@
 				E0C151CA247724CA00A14609 /* RedditDecoder.swift in Sources */,
 				E0C1517B2475E31800A14609 /* SceneDelegate.swift in Sources */,
 				E0C151B124760A9200A14609 /* PostsViewModel.swift in Sources */,
+				E0C151E52478251C00A14609 /* PersistenceService.swift in Sources */,
 				E0C151BE2477181200A14609 /* RedditPost.swift in Sources */,
 				E0C151B32476152400A14609 /* Observable.swift in Sources */,
 				E0C151A32475ECEA00A14609 /* PostsViewController.swift in Sources */,
@@ -399,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C151E02477851000A14609 /* PostDetailViewModelTests.swift in Sources */,
 				E0C151D924773EFA00A14609 /* PostCellViewModelTests.swift in Sources */,
 				E0C151DE24776A2E00A14609 /* ApiServiceMock.swift in Sources */,
 				E0C151C42477233E00A14609 /* FileHelpers.swift in Sources */,

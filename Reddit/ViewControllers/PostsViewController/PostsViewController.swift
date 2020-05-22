@@ -80,8 +80,12 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "PostDetailViewController", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "PostDetailViewControllerId")
+        guard
+            let viewController = storyboard.instantiateViewController(withIdentifier: "PostDetailViewControllerId") as? PostDetailViewController,
+            let postCellViewModel = viewModel?.postCellViewModels.value[indexPath.row]
+        else { return }
 
+        viewController.viewModel = PostDetailViewModel(apiService: ApiService(), post: postCellViewModel.post)
         show(viewController, sender: nil)
     }
 

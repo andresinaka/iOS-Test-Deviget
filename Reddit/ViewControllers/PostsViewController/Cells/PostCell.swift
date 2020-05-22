@@ -26,33 +26,13 @@ final class PostCell: UITableViewCell {
     }
 
     func setup(with viewModel: PostCellViewModelProtocol) {
-        viewModel.authorName.bind { [weak self] authorName in
-            self?.authorNameLabel.text = authorName
-        }
-
-        viewModel.unread.bind { [weak self] unread in
-            self?.unreadView.isHidden = unread
-        }
-
-        viewModel.title.bind { [weak self] title in
-            self?.titleLabel.text = title
-        }
-
-        viewModel.commentsText.bind { [weak self] commentsText in
-            self?.commentsCountLabel.text = commentsText
-        }
-
-        viewModel.dismissButtonTitle.bind { [weak self] dismissButtonTitle in
-            self?.dismissButton.setTitle(dismissButtonTitle, for: .normal)
-        }
-
-        viewModel.timeAgo.bind { [weak self] timeAgo in
-            self?.timeAgoLabel.text = timeAgo
-        }
-
-        viewModel.showThumbnail.bind { [weak self] showThumbnail in
-            self?.thumbnailImageView.isHidden = !showThumbnail
-        }
+        authorNameLabel.text = viewModel.authorName
+        unreadView.isHidden = viewModel.unread
+        titleLabel.text = viewModel.title
+        commentsCountLabel.text = viewModel.commentsText
+        dismissButton.setTitle(viewModel.dismissButtonTitle, for: .normal)
+        timeAgoLabel.text = viewModel.timeAgo
+        thumbnailImageView.isHidden = !viewModel.showThumbnail
 
         viewModel.postImage.bind { [weak self] image in
             self?.thumbnailImageView.image = image

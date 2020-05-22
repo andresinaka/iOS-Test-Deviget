@@ -10,27 +10,30 @@ import Foundation
 import UIKit
 
 protocol PostCellViewModelProtocol {
-    var authorName: Observable<String> { get }
-    var title: Observable<String> { get }
-    var commentsText: Observable<String> { get }
-    var timeAgo: Observable<String> { get }
-    var unread: Observable<Bool> { get }
-    var dismissButtonTitle: Observable<String> { get }
-    var showThumbnail: Observable<Bool> { get }
+    var authorName: String { get }
+    var title: String { get }
+    var commentsText: String { get }
+    var timeAgo: String { get }
+    var unread: Bool { get }
+    var dismissButtonTitle: String { get }
+    var showThumbnail: Bool { get }
     var postImage: Observable<UIImage?> { get }
+    var post: RedditPost { get }
 
     func downloadImage()
 }
 
 final class PostCellViewModel: PostCellViewModelProtocol {
 
-    var authorName: Observable<String>
-    var title: Observable<String>
-    var commentsText: Observable<String>
-    var timeAgo: Observable<String>
-    var unread: Observable<Bool>
-    var dismissButtonTitle: Observable<String>
-    var showThumbnail: Observable<Bool>
+    let post: RedditPost
+
+    var authorName: String
+    var title: String
+    var commentsText: String
+    var timeAgo: String
+    var unread: Bool
+    var dismissButtonTitle: String
+    var showThumbnail: Bool
     var postImage: Observable<UIImage?>
 
     private var apiService: ApiServiceProtocol
@@ -38,14 +41,15 @@ final class PostCellViewModel: PostCellViewModelProtocol {
 
     init(apiService: ApiServiceProtocol, post: RedditPost) {
         self.apiService = apiService
+        self.post = post
 
-        authorName = Observable(post.author)
-        title = Observable(post.title)
-        commentsText = Observable("\(post.numComments) Comments")
-        timeAgo = Observable(post.createdUTC.timeAgoDisplay())
-        unread = Observable(false)
-        dismissButtonTitle = Observable("Dismiss Post")
-        showThumbnail = Observable(post.thumbnailURL != nil)
+        authorName = post.author
+        title = post.title
+        commentsText = "\(post.numComments) Comments"
+        timeAgo = post.createdUTC.timeAgoDisplay()
+        unread = false
+        dismissButtonTitle = "Dismiss Post"
+        showThumbnail = post.thumbnailURL != nil
         postImage = Observable(nil)
 
         guard let thumbnailURL = post.thumbnailURL else { return }
