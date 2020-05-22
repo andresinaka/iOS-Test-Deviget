@@ -15,6 +15,7 @@ class PostCellViewModelTests: XCTestCase {
 
         let fixedDate = Date(timeIntervalSince1970: 1590015768)
         let redditPost = RedditPost(
+            id: "some-id",
             title: "Title",
             author: "Author",
             createdUTC: Date(timeInterval: 100, since: fixedDate),

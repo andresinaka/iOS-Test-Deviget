@@ -16,24 +16,34 @@ protocol PersistenceServiceProtocol {
     func isHidden(redditPost: RedditPost?) -> Bool
 }
 
-final class PersistanceService: PersistenceServiceProtocol {
+final class PersistenceService: PersistenceServiceProtocol {
 
-    private let userDefaults = UserDefaults()
+    private static let readKey = "readKey"
+    private static let hiddenKey = "hiddenKey"
+
+    private let userDefaults: UserDefaultsServiceProtocol
+
+    init(userDefaults: UserDefaultsServiceProtocol = UserDefaultsService()) {
+        self.userDefaults = userDefaults
+    }
 
     func setRead(redditPost: RedditPost?) {
         guard let redditPost = redditPost else { return }
-        userDefaults.set(true, forKey: redditPost.i)
+        userDefaults.set(true, forKey: Self.readKey + redditPost.id)
     }
 
     func isRead(redditPost: RedditPost?) -> Bool {
-
+        guard let redditPost = redditPost else { return false }
+        return userDefaults.bool(forKey: Self.readKey + redditPost.id)
     }
 
     func setHidden(redditPost: RedditPost?) {
-
+        guard let redditPost = redditPost else { return }
+        userDefaults.set(true, forKey: Self.hiddenKey + redditPost.id)
     }
 
     func isHidden(redditPost: RedditPost?) -> Bool {
-
+        guard let redditPost = redditPost else { return false }
+        return userDefaults.bool(forKey: Self.hiddenKey + redditPost.id)
     }
 }

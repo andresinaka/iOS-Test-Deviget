@@ -13,6 +13,7 @@ class PostDetailViewModelTests: XCTestCase {
 
     func testPostWithImage() throws {
         let redditPost = RedditPost(
+            id: "some-id",
             title: "Title",
             author: "Author",
             createdUTC: Date(),
@@ -31,6 +32,7 @@ class PostDetailViewModelTests: XCTestCase {
 
     func testPostWithNoImage() throws {
         let redditPost = RedditPost(
+            id: "some-id",
             title: "Title",
             author: "Author",
             createdUTC: Date(),

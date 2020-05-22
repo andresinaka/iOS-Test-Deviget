@@ -15,6 +15,7 @@ class RedditPostTests: XCTestCase {
         guard let data = FileHelpers.dataFromJSON(file: "RedditPostWithThumbnail") else { XCTFail(); return }
         let redditPost = try? JSONDecoder.reddit.decode(RedditPost.self, from: data)
 
+        XCTAssertEqual(redditPost?.id, "gnl55y")
         XCTAssertEqual(redditPost?.title, "Sticky bun for you!")
         XCTAssertEqual(redditPost?.author, "rnielsen776")
         XCTAssertEqual(redditPost?.createdUTC, Date(timeIntervalSince1970: 1590015768))

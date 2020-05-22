@@ -38,6 +38,9 @@
 		E0C151DE24776A2E00A14609 /* ApiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151DD24776A2E00A14609 /* ApiServiceMock.swift */; };
 		E0C151E02477851000A14609 /* PostDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151DF2477851000A14609 /* PostDetailViewModelTests.swift */; };
 		E0C151E52478251C00A14609 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151E42478251C00A14609 /* PersistenceService.swift */; };
+		E0C151E824782D3A00A14609 /* PersistenceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151E724782D3A00A14609 /* PersistenceServiceTests.swift */; };
+		E0C151EC24782DAA00A14609 /* UserDefaultsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */; };
+		E0C151EE24782DD800A14609 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151ED24782DD800A14609 /* UserDefaultsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		E0C151DD24776A2E00A14609 /* ApiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceMock.swift; sourceTree = "<group>"; };
 		E0C151DF2477851000A14609 /* PostDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModelTests.swift; sourceTree = "<group>"; };
 		E0C151E42478251C00A14609 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		E0C151E724782D3A00A14609 /* PersistenceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceTests.swift; sourceTree = "<group>"; };
+		E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceMock.swift; sourceTree = "<group>"; };
+		E0C151ED24782DD800A14609 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +152,12 @@
 		E0C1518E2475E31B00A14609 /* RedditTests */ = {
 			isa = PBXGroup;
 			children = (
+				E0C151C52477240900A14609 /* Resources */,
 				E0C151DC24776A2000A14609 /* Mock */,
 				E0C151D724773EE400A14609 /* ViewModel */,
 				E0C151D424773EC900A14609 /* Model */,
-				E0C151C52477240900A14609 /* Resources */,
 				E0C151C22477233200A14609 /* Helpers */,
+				E0C151E624782CB700A14609 /* Persistence */,
 				E0C151912475E31B00A14609 /* Info.plist */,
 			);
 			path = RedditTests;
@@ -271,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C151DD24776A2E00A14609 /* ApiServiceMock.swift */,
+				E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -279,6 +287,15 @@
 			isa = PBXGroup;
 			children = (
 				E0C151E42478251C00A14609 /* PersistenceService.swift */,
+				E0C151ED24782DD800A14609 /* UserDefaultsService.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		E0C151E624782CB700A14609 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E0C151E724782D3A00A14609 /* PersistenceServiceTests.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -400,6 +417,7 @@
 				E0C1517B2475E31800A14609 /* SceneDelegate.swift in Sources */,
 				E0C151B124760A9200A14609 /* PostsViewModel.swift in Sources */,
 				E0C151E52478251C00A14609 /* PersistenceService.swift in Sources */,
+				E0C151EE24782DD800A14609 /* UserDefaultsService.swift in Sources */,
 				E0C151BE2477181200A14609 /* RedditPost.swift in Sources */,
 				E0C151B32476152400A14609 /* Observable.swift in Sources */,
 				E0C151A32475ECEA00A14609 /* PostsViewController.swift in Sources */,
@@ -417,6 +435,8 @@
 				E0C151E02477851000A14609 /* PostDetailViewModelTests.swift in Sources */,
 				E0C151D924773EFA00A14609 /* PostCellViewModelTests.swift in Sources */,
 				E0C151DE24776A2E00A14609 /* ApiServiceMock.swift in Sources */,
+				E0C151EC24782DAA00A14609 /* UserDefaultsServiceMock.swift in Sources */,
+				E0C151E824782D3A00A14609 /* PersistenceServiceTests.swift in Sources */,
 				E0C151C42477233E00A14609 /* FileHelpers.swift in Sources */,
 				E0C151C0247722DA00A14609 /* RedditPostTests.swift in Sources */,
 			);
