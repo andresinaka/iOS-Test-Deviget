@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E0C151792475E31800A14609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151782475E31800A14609 /* AppDelegate.swift */; };
 		E0C1517B2475E31800A14609 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1517A2475E31800A14609 /* SceneDelegate.swift */; };
-		E0C1517D2475E31800A14609 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1517C2475E31800A14609 /* ViewController.swift */; };
+		E0C1517D2475E31800A14609 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1517C2475E31800A14609 /* SplitViewController.swift */; };
 		E0C151802475E31800A14609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C1517E2475E31800A14609 /* Main.storyboard */; };
 		E0C151822475E31B00A14609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C151812475E31B00A14609 /* Assets.xcassets */; };
 		E0C151852475E31B00A14609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C151832475E31B00A14609 /* LaunchScreen.storyboard */; };
@@ -63,7 +63,7 @@
 		E0C151752475E31800A14609 /* Reddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0C151782475E31800A14609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0C1517A2475E31800A14609 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E0C1517C2475E31800A14609 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0C1517C2475E31800A14609 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		E0C1517F2475E31800A14609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0C151812475E31B00A14609 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0C151842475E31B00A14609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		E0C151AA247605EC00A14609 /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E0C1517C2475E31800A14609 /* ViewController.swift */,
+				E0C1517C2475E31800A14609 /* SplitViewController.swift */,
 				E0C1517E2475E31800A14609 /* Main.storyboard */,
 			);
 			path = RootViewController;
@@ -424,7 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0C1517D2475E31800A14609 /* ViewController.swift in Sources */,
+				E0C1517D2475E31800A14609 /* SplitViewController.swift in Sources */,
 				E0C151BC2477179400A14609 /* RedditTopResponse.swift in Sources */,
 				E0C151AF2476064700A14609 /* Request.swift in Sources */,
 				E0C151792475E31800A14609 /* AppDelegate.swift in Sources */,

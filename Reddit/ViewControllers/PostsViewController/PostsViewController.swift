@@ -105,13 +105,14 @@ extension PostsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "PostDetailViewController", bundle: nil)
         guard
-            let viewController = storyboard.instantiateViewController(withIdentifier: "PostDetailViewControllerId") as? PostDetailViewController,
+            let viewController = storyboard.instantiateViewController(withIdentifier: "PostDetailViewControllerID") as? PostDetailViewController,
             let postCellViewModel = dataSource?.itemIdentifier(for: indexPath)
         else { return }
 
         postCellViewModel.markAsRead()
         viewController.viewModel = DependencyFactory.shared.postDetailViewModel(post: postCellViewModel.post)
-        show(viewController, sender: nil)
+
+        splitViewController?.showDetailViewController(viewController, sender: nil)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

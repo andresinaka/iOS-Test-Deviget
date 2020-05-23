@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "AFF93BC6-160C-4375-BBEB-7108424CF275"
+            uuid = "26397BBF-F17E-49CA-921E-CFADA9802D6A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -17,16 +17,19 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C3320654-52A5-4B02-A1EE-23C13DEB09D7"
+            uuid = "DF997F13-06CB-46CE-8F22-61F37C30869A"
             shouldBeEnabled = "Yes"
-            condition = "UIViewAlertForUnsatisfiableConstraints"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
+            filePath = "Reddit/ViewControllers/RootViewController/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,7 +10,7 @@
         <!--Post Detail View Controller-->
         <scene sceneID="UOv-vG-EC9">
             <objects>
-                <viewController storyboardIdentifier="PostDetailViewControllerId" id="tmc-hX-Ais" customClass="PostDetailViewController" customModule="Reddit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostDetailViewControllerID" id="tmc-hX-Ais" customClass="PostDetailViewController" customModule="Reddit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5o-78-356">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,7 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djD-5r-UwF">
                                                         <rect key="frame" x="97" y="75.333333333333314" width="200" height="200"/>
-                                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="200" id="fpO-nE-J8Z"/>
                                                             <constraint firstAttribute="width" constant="200" id="m1u-Xv-gBD"/>

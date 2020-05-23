@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hrc-FH-c8K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yF0-fL-opr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,30 +7,53 @@
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
-        <scene sceneID="L61-Vh-qM6">
+        <scene sceneID="2w8-6b-poc">
             <objects>
-                <navigationController id="hrc-FH-c8K" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="723-z3-ZZc">
+                <navigationController id="CgF-HA-eUM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="35f-74-BQy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="dn4-4c-aBi" kind="relationship" relationship="rootViewController" id="vAY-oq-qf8"/>
+                        <segue destination="dn4-4c-aBi" kind="relationship" relationship="rootViewController" id="1cL-e7-Ubv"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r1X-j7-NXE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1yh-Kw-QSx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-865" y="78"/>
+            <point key="canvasLocation" x="-2592" y="-188"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="JXO-ha-sBq">
+            <objects>
+                <splitViewController id="yF0-fL-opr" customClass="SplitViewController" customModule="Reddit" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="CgF-HA-eUM" kind="relationship" relationship="masterViewController" id="VJy-wd-s3j"/>
+                        <segue destination="yRc-LZ-4yg" kind="relationship" relationship="detailViewController" id="tqh-aE-gch"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2N1-OM-HIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3512" y="135"/>
         </scene>
         <!--PostsViewControllerID-->
         <scene sceneID="QMh-wG-Ko7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HUg-yw-6gJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="PostsViewController" referencedIdentifier="PostsViewControllerID" id="dn4-4c-aBi" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Vju-q8-lSd"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HUg-yw-6gJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-183" y="78"/>
+            <point key="canvasLocation" x="-1876" y="-188"/>
+        </scene>
+        <!--PostDetailViewControllerID-->
+        <scene sceneID="qt7-bi-jab">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PostDetailViewController" referencedIdentifier="PostDetailViewControllerID" id="yRc-LZ-4yg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="g5q-o8-5hE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqI-ax-T5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2592" y="307"/>
         </scene>
     </scenes>
 </document>
