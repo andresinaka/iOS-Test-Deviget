@@ -23,7 +23,7 @@ final class PostsViewController: UIViewController {
         setupViews()
         bindViewModel()
 
-        viewModel?.fetchPosts()
+        viewModel?.fetchFirstPage()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,8 +32,7 @@ final class PostsViewController: UIViewController {
     }
 
     @objc func refreshPosts(refreshControl: UIRefreshControl) {
-
-        refreshControl.endRefreshing()
+        viewModel?.fetchFirstPage()
     }
 
     @IBAction func dismissAllAction(_ sender: Any) {
@@ -71,6 +70,10 @@ private extension PostsViewController {
 
         viewModel?.dismissAllButtonEnabled.bind { [weak self] dismissAllButtonEnabled in
             self?.dismissAllButton.isEnabled = dismissAllButtonEnabled
+        }
+
+        viewModel?.isFetching.bind { [weak self] isFetching in
+            self?.refreshControl?.endRefreshing()
         }
 
         title = viewModel?.title

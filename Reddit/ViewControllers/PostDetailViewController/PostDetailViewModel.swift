@@ -61,10 +61,9 @@ final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
     }
 
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        alert.value = UIAlertController.alertWith(
+        createAlert(
             title: error != nil ? "Save Error" : "Saved Successfully",
-            message: error != nil ? error?.localizedDescription ?? "" : "The image was added to your gallery",
-            buttonTitle: "Ok"
+            message: error != nil ? error?.localizedDescription ?? "" : "The image was added to your gallery"
         )
     }
 }
@@ -74,19 +73,26 @@ private extension PostDetailViewModel {
     func requestPhotosAuthorization() {
         let status = PHPhotoLibrary.authorizationStatus()
         if status == .notDetermined {
-            PHPhotoLibrary.requestAuthorization { status in
+            PHPhotoLibrary.requestAuthorization { [weak self] status in
                 if status == .denied {
-                    self.alert.value = UIAlertController.alertWith(title: "Warning!", message: "Error with Gallery Permissions", buttonTitle: "Ok")
+                    self?.createAlert(title: "Warning!", message: "Error with Gallery Permissions")
                 }
 
                 if status == .authorized {
-                    self.saveImage()
+                    self?.saveImage()
                 }
             }
         }
 
         if status == .denied || status == .restricted {
-            alert.value = UIAlertController.alertWith(title: "Warning!", message: "Error with Gallery Permissions", buttonTitle: "Ok")
+            createAlert(title: "Warning!", message: "Error with Gallery Permissions")
+        }
+    }
+
+    func createAlert(title: String?, message: String?) {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController.alertWith(title: title, message: message, buttonTitle: "Ok")
+            self?.alert.value = alert
         }
     }
 }

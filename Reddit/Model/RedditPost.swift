@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RedditPost {
+struct RedditPost: Hashable {
     var id: String
     var title: String
     var author: String

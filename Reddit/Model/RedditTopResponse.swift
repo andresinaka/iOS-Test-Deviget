@@ -10,6 +10,7 @@ import Foundation
 
 struct RedditTopResponse {
     var posts: [RedditPost]
+    var after: String?
 }
 
 extension RedditTopResponse: Decodable {
@@ -19,16 +20,15 @@ extension RedditTopResponse: Decodable {
 
         let data = try mainContainer.nestedContainer(keyedBy: DataContainerCodingKeys.self, forKey: .data)
         posts = try data.decode([RedditPost].self, forKey: .children)
+        after = try? data.decode(String.self, forKey: .after)
     }
 
     enum MainContainerCodingKeys: String, CodingKey {
-        case after
-        case posts
         case data
-        case children
     }
 
     enum DataContainerCodingKeys: String, CodingKey {
         case children
+        case after
     }
 }

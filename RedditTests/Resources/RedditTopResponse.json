@@ -1,0 +1,605 @@
+{
+    "kind": "Listing",
+    "data": {
+        "modhash": "",
+        "dist": 2,
+        "children": [{
+                "kind": "t3",
+                "data": {
+                    "approved_at_utc": null,
+                    "subreddit": "nextfuckinglevel",
+                    "selftext": "",
+                    "author_fullname": "t2_2xf0jofg",
+                    "saved": false,
+                    "mod_reason_title": null,
+                    "gilded": 0,
+                    "clicked": false,
+                    "title": "'Monkey on a tree' Shaolin trick",
+                    "link_flair_richtext": [],
+                    "subreddit_name_prefixed": "r/nextfuckinglevel",
+                    "hidden": false,
+                    "pwls": 7,
+                    "link_flair_css_class": null,
+                    "downs": 0,
+                    "thumbnail_height": 129,
+                    "hide_score": false,
+                    "name": "t3_got7qr",
+                    "quarantine": false,
+                    "link_flair_text_color": "dark",
+                    "upvote_ratio": 0.92,
+                    "author_flair_background_color": null,
+                    "subreddit_type": "public",
+                    "ups": 86828,
+                    "total_awards_received": 3,
+                    "media_embed": {},
+                    "thumbnail_width": 140,
+                    "author_flair_template_id": null,
+                    "is_original_content": false,
+                    "user_reports": [],
+                    "secure_media": {
+                        "reddit_video": {
+                            "fallback_url": "https://v.redd.it/zmr8xhym6e051/DASH_480?source=fallback",
+                            "height": 480,
+                            "width": 518,
+                            "scrubber_media_url": "https://v.redd.it/zmr8xhym6e051/DASH_96",
+                            "dash_url": "https://v.redd.it/zmr8xhym6e051/DASHPlaylist.mpd?a=1592840656%2CMzE3ZjY4M2M3MjRjMzNkZDQ4ZTZjN2IyYjk1OWY0M2NiODZlZGI3YjUzZGZiZTk2NjFiMzE0NDk3M2E4Mzk2NA%3D%3D&amp;v=v1&amp;f=sd",
+                            "duration": 9,
+                            "hls_url": "https://v.redd.it/zmr8xhym6e051/HLSPlaylist.m3u8?a=1592840656%2CMzE3ZjY4M2M3MjRjMzNkZDQ4ZTZjN2IyYjk1OWY0M2NiODZlZGI3YjUzZGZiZTk2NjFiMzE0NDk3M2E4Mzk2NA%3D%3D&amp;v=v1&amp;f=sd",
+                            "is_gif": false,
+                            "transcoding_status": "completed"
+                        }
+                    },
+                    "is_reddit_media_domain": true,
+                    "is_meta": false,
+                    "category": null,
+                    "secure_media_embed": {},
+                    "link_flair_text": null,
+                    "can_mod_post": false,
+                    "score": 86828,
+                    "approved_by": null,
+                    "author_premium": true,
+                    "thumbnail": "https://b.thumbs.redditmedia.com/RodmG8MHwS8UGMsv1OIv8eAp45eB96Yxcg7_BlfVBAM.jpg",
+                    "edited": false,
+                    "author_flair_css_class": null,
+                    "author_flair_richtext": [],
+                    "gildings": {
+                        "gid_1": 1
+                    },
+                    "post_hint": "hosted:video",
+                    "content_categories": null,
+                    "is_self": false,
+                    "mod_note": null,
+                    "created": 1590215071,
+                    "link_flair_type": "text",
+                    "wls": 7,
+                    "removed_by_category": null,
+                    "banned_by": null,
+                    "author_flair_type": "text",
+                    "domain": "v.redd.it",
+                    "allow_live_comments": true,
+                    "selftext_html": null,
+                    "likes": null,
+                    "suggested_sort": "top",
+                    "banned_at_utc": null,
+                    "view_count": null,
+                    "archived": false,
+                    "no_follow": false,
+                    "is_crosspostable": false,
+                    "pinned": false,
+                    "over_18": false,
+                    "preview": {
+                        "images": [{
+                            "source": {
+                                "url": "https://external-preview.redd.it/8khGlkUmWFdqFkWyEUDvwxtumRX2pJi_D5OfyWWs-jE.png?format=pjpg&amp;auto=webp&amp;s=b9f898a5ce80b33b8aa1ed2c8aeb882fc91d11ba",
+                                "width": 610,
+                                "height": 566
+                            },
+                            "resolutions": [{
+                                    "url": "https://external-preview.redd.it/8khGlkUmWFdqFkWyEUDvwxtumRX2pJi_D5OfyWWs-jE.png?width=108&amp;crop=smart&amp;format=pjpg&amp;auto=webp&amp;s=3d051fee4df8b2e763b6fdc3b386bd92252f6ee2",
+                                    "width": 108,
+                                    "height": 100
+                                },
+                                {
+                                    "url": "https://external-preview.redd.it/8khGlkUmWFdqFkWyEUDvwxtumRX2pJi_D5OfyWWs-jE.png?width=216&amp;crop=smart&amp;format=pjpg&amp;auto=webp&amp;s=ea7d49255462075e9b703550ee9d8b4d5e0927c0",
+                                    "width": 216,
+                                    "height": 200
+                                },
+                                {
+                                    "url": "https://external-preview.redd.it/8khGlkUmWFdqFkWyEUDvwxtumRX2pJi_D5OfyWWs-jE.png?width=320&amp;crop=smart&amp;format=pjpg&amp;auto=webp&amp;s=303776a71ba85fd15a543adaf2ae5f9d049dabd0",
+                                    "width": 320,
+                                    "height": 296
+                                }
+                            ],
+                            "variants": {},
+                            "id": "_7yrJk9pyGe9-XifFpTLA6j71DCxskCh2zauNKG1RF8"
+                        }],
+                        "enabled": false
+                    },
+                    "all_awardings": [{
+                            "giver_coin_reward": null,
+                            "subreddit_id": null,
+                            "is_new": false,
+                            "days_of_drip_extension": 0,
+                            "coin_price": 250,
+                            "id": "award_9583d210-a7d0-4f3c-b0c7-369ad579d3d4",
+                            "penny_donate": null,
+                            "coin_reward": 100,
+                            "icon_url": "https://i.redd.it/award_images/t5_22cerq/wa987k0p4v541_MindBlown.png",
+                            "days_of_premium": 0,
+                            "icon_height": 2048,
+                            "resized_icons": [{
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/wa987k0p4v541_MindBlown.png?width=16&amp;height=16&amp;auto=webp&amp;s=3429167a3ea031ab4a4574baf47b2140c7b59aa8",
+                                    "width": 16,
+                                    "height": 16
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/wa987k0p4v541_MindBlown.png?width=32&amp;height=32&amp;auto=webp&amp;s=835353c87c6a5d516662bb681d0d50647e7ab44f",
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/wa987k0p4v541_MindBlown.png?width=48&amp;height=48&amp;auto=webp&amp;s=a925fdb8ed532e7261b0dbc820e691423cba8ee6",
+                                    "width": 48,
+                                    "height": 48
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/wa987k0p4v541_MindBlown.png?width=64&amp;height=64&amp;auto=webp&amp;s=1d86da7e5837d52fec767aeb6a762caff5f7cef0",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/wa987k0p4v541_MindBlown.png?width=128&amp;height=128&amp;auto=webp&amp;s=e3254651db548741c58f331e91395b55a557573d",
+                                    "width": 128,
+                                    "height": 128
+                                }
+                            ],
+                            "icon_width": 2048,
+                            "start_date": null,
+                            "is_enabled": true,
+                            "description": "When a thing immediately combusts your brain. Gives %{coin_symbol}100 Coins to both the author and the community.",
+                            "end_date": null,
+                            "subreddit_coin_reward": 100,
+                            "count": 1,
+                            "name": "Mind Blown",
+                            "icon_format": null,
+                            "award_sub_type": "APPRECIATION",
+                            "penny_price": null,
+                            "award_type": "global"
+                        },
+                        {
+                            "giver_coin_reward": 0,
+                            "subreddit_id": null,
+                            "is_new": false,
+                            "days_of_drip_extension": 0,
+                            "coin_price": 400,
+                            "id": "award_84276b1e-cc8f-484f-a19c-be6c09adc1a5",
+                            "penny_donate": 0,
+                            "coin_reward": 0,
+                            "icon_url": "https://www.redditstatic.com/gold/awards/icon/SnooClapping_512.png",
+                            "days_of_premium": 0,
+                            "icon_height": 512,
+                            "resized_icons": [{
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/SnooClapping_16.png",
+                                    "width": 16,
+                                    "height": 16
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/SnooClapping_32.png",
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/SnooClapping_48.png",
+                                    "width": 48,
+                                    "height": 48
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/SnooClapping_64.png",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/SnooClapping_128.png",
+                                    "width": 128,
+                                    "height": 128
+                                }
+                            ],
+                            "icon_width": 512,
+                            "start_date": null,
+                            "is_enabled": true,
+                            "description": "An amazing showing.",
+                            "end_date": null,
+                            "subreddit_coin_reward": 0,
+                            "count": 1,
+                            "name": "Bravo!",
+                            "icon_format": "APNG",
+                            "award_sub_type": "GLOBAL",
+                            "penny_price": 0,
+                            "award_type": "global"
+                        },
+                        {
+                            "giver_coin_reward": null,
+                            "subreddit_id": null,
+                            "is_new": false,
+                            "days_of_drip_extension": 0,
+                            "coin_price": 100,
+                            "id": "gid_1",
+                            "penny_donate": null,
+                            "coin_reward": 0,
+                            "icon_url": "https://www.redditstatic.com/gold/awards/icon/silver_512.png",
+                            "days_of_premium": 0,
+                            "icon_height": 512,
+                            "resized_icons": [{
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/silver_16.png",
+                                    "width": 16,
+                                    "height": 16
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/silver_32.png",
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/silver_48.png",
+                                    "width": 48,
+                                    "height": 48
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/silver_64.png",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://www.redditstatic.com/gold/awards/icon/silver_128.png",
+                                    "width": 128,
+                                    "height": 128
+                                }
+                            ],
+                            "icon_width": 512,
+                            "start_date": null,
+                            "is_enabled": true,
+                            "description": "Shows the Silver Award... and that's it.",
+                            "end_date": null,
+                            "subreddit_coin_reward": 0,
+                            "count": 1,
+                            "name": "Silver",
+                            "icon_format": null,
+                            "award_sub_type": "GLOBAL",
+                            "penny_price": null,
+                            "award_type": "global"
+                        }
+                    ],
+                    "awarders": [],
+                    "media_only": false,
+                    "can_gild": false,
+                    "spoiler": false,
+                    "locked": false,
+                    "author_flair_text": null,
+                    "treatment_tags": [],
+                    "visited": false,
+                    "removed_by": null,
+                    "num_reports": null,
+                    "distinguished": null,
+                    "subreddit_id": "t5_m0bnr",
+                    "mod_reason_by": null,
+                    "removal_reason": null,
+                    "link_flair_background_color": "",
+                    "id": "got7qr",
+                    "is_robot_indexable": true,
+                    "report_reasons": null,
+                    "author": "d3333p7",
+                    "discussion_type": null,
+                    "num_comments": 1193,
+                    "send_replies": true,
+                    "whitelist_status": "some_ads",
+                    "contest_mode": false,
+                    "mod_reports": [],
+                    "author_patreon_flair": false,
+                    "author_flair_text_color": null,
+                    "permalink": "/r/nextfuckinglevel/comments/got7qr/monkey_on_a_tree_shaolin_trick/",
+                    "parent_whitelist_status": "some_ads",
+                    "stickied": false,
+                    "url": "https://v.redd.it/zmr8xhym6e051",
+                    "subreddit_subscribers": 2275528,
+                    "created_utc": 1590186271,
+                    "num_crossposts": 31,
+                    "media": {
+                        "reddit_video": {
+                            "fallback_url": "https://v.redd.it/zmr8xhym6e051/DASH_480?source=fallback",
+                            "height": 480,
+                            "width": 518,
+                            "scrubber_media_url": "https://v.redd.it/zmr8xhym6e051/DASH_96",
+                            "dash_url": "https://v.redd.it/zmr8xhym6e051/DASHPlaylist.mpd?a=1592840656%2CMzE3ZjY4M2M3MjRjMzNkZDQ4ZTZjN2IyYjk1OWY0M2NiODZlZGI3YjUzZGZiZTk2NjFiMzE0NDk3M2E4Mzk2NA%3D%3D&amp;v=v1&amp;f=sd",
+                            "duration": 9,
+                            "hls_url": "https://v.redd.it/zmr8xhym6e051/HLSPlaylist.m3u8?a=1592840656%2CMzE3ZjY4M2M3MjRjMzNkZDQ4ZTZjN2IyYjk1OWY0M2NiODZlZGI3YjUzZGZiZTk2NjFiMzE0NDk3M2E4Mzk2NA%3D%3D&amp;v=v1&amp;f=sd",
+                            "is_gif": false,
+                            "transcoding_status": "completed"
+                        }
+                    },
+                    "is_video": true
+                }
+            },
+            {
+                "kind": "t3",
+                "data": {
+                    "approved_at_utc": null,
+                    "subreddit": "todayilearned",
+                    "selftext": "",
+                    "author_fullname": "t2_2ogw8rqx",
+                    "saved": false,
+                    "mod_reason_title": null,
+                    "gilded": 0,
+                    "clicked": false,
+                    "title": "TIL about Sarah Rector, an impoverished black girl who became a millionaire oil baron when oil was discovered on the land allotted to her by the government. She was so wealthy the Oklahoma legislature declared her to be a white person.",
+                    "link_flair_richtext": [],
+                    "subreddit_name_prefixed": "r/todayilearned",
+                    "hidden": false,
+                    "pwls": 6,
+                    "link_flair_css_class": null,
+                    "downs": 0,
+                    "thumbnail_height": 140,
+                    "hide_score": false,
+                    "name": "t3_gorshc",
+                    "quarantine": false,
+                    "link_flair_text_color": "dark",
+                    "upvote_ratio": 0.92,
+                    "author_flair_background_color": null,
+                    "subreddit_type": "public",
+                    "ups": 84380,
+                    "total_awards_received": 3,
+                    "media_embed": {},
+                    "thumbnail_width": 140,
+                    "author_flair_template_id": null,
+                    "is_original_content": false,
+                    "user_reports": [],
+                    "secure_media": null,
+                    "is_reddit_media_domain": false,
+                    "is_meta": false,
+                    "category": null,
+                    "secure_media_embed": {},
+                    "link_flair_text": null,
+                    "can_mod_post": false,
+                    "score": 84380,
+                    "approved_by": null,
+                    "author_premium": false,
+                    "thumbnail": "https://b.thumbs.redditmedia.com/k_AZje6x2it9xTl51j83jVREY0ggb0l_W6OVgc38-uo.jpg",
+                    "edited": false,
+                    "author_flair_css_class": null,
+                    "author_flair_richtext": [],
+                    "gildings": {},
+                    "post_hint": "link",
+                    "content_categories": null,
+                    "is_self": false,
+                    "mod_note": null,
+                    "created": 1590210223,
+                    "link_flair_type": "text",
+                    "wls": 6,
+                    "removed_by_category": null,
+                    "banned_by": null,
+                    "author_flair_type": "text",
+                    "domain": "en.wikipedia.org",
+                    "allow_live_comments": true,
+                    "selftext_html": null,
+                    "likes": null,
+                    "suggested_sort": null,
+                    "banned_at_utc": null,
+                    "view_count": null,
+                    "archived": false,
+                    "no_follow": false,
+                    "is_crosspostable": false,
+                    "pinned": false,
+                    "over_18": false,
+                    "preview": {
+                        "images": [{
+                            "source": {
+                                "url": "https://external-preview.redd.it/56D4e22_JzxxozEF52LPslXlAkLLTUYIK4CGm5ZF7uw.jpg?auto=webp&amp;s=ceb739cbce1ffe287a0a01f5b828ed50a95122bf",
+                                "width": 187,
+                                "height": 400
+                            },
+                            "resolutions": [{
+                                "url": "https://external-preview.redd.it/56D4e22_JzxxozEF52LPslXlAkLLTUYIK4CGm5ZF7uw.jpg?width=108&amp;crop=smart&amp;auto=webp&amp;s=766747a05f2fab6c762d0a6958db74a35a8ccffd",
+                                "width": 108,
+                                "height": 216
+                            }],
+                            "variants": {},
+                            "id": "7hlH96UgjigU2r25ALutRPhnBwTWkC7l8bEkX2v1IdA"
+                        }],
+                        "enabled": false
+                    },
+                    "all_awardings": [{
+                            "giver_coin_reward": null,
+                            "subreddit_id": null,
+                            "is_new": false,
+                            "days_of_drip_extension": 0,
+                            "coin_price": 50,
+                            "id": "award_a2506925-fc82-4d6c-ae3b-b7217e09d7f0",
+                            "penny_donate": null,
+                            "coin_reward": 0,
+                            "icon_url": "https://i.redd.it/award_images/t5_22cerq/80j20o397jj41_NarwhalSalute.png",
+                            "days_of_premium": 0,
+                            "icon_height": 2048,
+                            "resized_icons": [{
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/80j20o397jj41_NarwhalSalute.png?width=16&amp;height=16&amp;auto=webp&amp;s=4e475e8c3265ec7148d7f4204f07d33949482f21",
+                                    "width": 16,
+                                    "height": 16
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/80j20o397jj41_NarwhalSalute.png?width=32&amp;height=32&amp;auto=webp&amp;s=42e32a4b9f1e70791716c3be283e89951e212a69",
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/80j20o397jj41_NarwhalSalute.png?width=48&amp;height=48&amp;auto=webp&amp;s=5adb621fede4e8e66b952a379ad038fcc1b8ad13",
+                                    "width": 48,
+                                    "height": 48
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/80j20o397jj41_NarwhalSalute.png?width=64&amp;height=64&amp;auto=webp&amp;s=6161edea19569bbee73ef322a2e5470535ec1787",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/80j20o397jj41_NarwhalSalute.png?width=128&amp;height=128&amp;auto=webp&amp;s=5d2c75f44f176f430e936204f9a53b8a2957f2fc",
+                                    "width": 128,
+                                    "height": 128
+                                }
+                            ],
+                            "icon_width": 2048,
+                            "start_date": null,
+                            "is_enabled": true,
+                            "description": "A golden splash of respect",
+                            "end_date": null,
+                            "subreddit_coin_reward": 0,
+                            "count": 1,
+                            "name": "Narwhal Salute",
+                            "icon_format": null,
+                            "award_sub_type": "PREMIUM",
+                            "penny_price": null,
+                            "award_type": "global"
+                        },
+                        {
+                            "giver_coin_reward": null,
+                            "subreddit_id": null,
+                            "is_new": false,
+                            "days_of_drip_extension": 0,
+                            "coin_price": 50,
+                            "id": "award_b4ff447e-05a5-42dc-9002-63568807cfe6",
+                            "penny_donate": null,
+                            "coin_reward": 0,
+                            "icon_url": "https://i.redd.it/award_images/t5_22cerq/rg960rc47jj41_All-SeeingUpvote.png",
+                            "days_of_premium": 0,
+                            "icon_height": 2048,
+                            "resized_icons": [{
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/rg960rc47jj41_All-SeeingUpvote.png?width=16&amp;height=16&amp;auto=webp&amp;s=49b775b684dcffe79df3e103d71055a7925d6c37",
+                                    "width": 16,
+                                    "height": 16
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/rg960rc47jj41_All-SeeingUpvote.png?width=32&amp;height=32&amp;auto=webp&amp;s=31e8c0e96f4a97ee1bf582ab8f9a21e06fc85e01",
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/rg960rc47jj41_All-SeeingUpvote.png?width=48&amp;height=48&amp;auto=webp&amp;s=0a6fb9ecfb8eee4493afe6c5b234c44eb8413008",
+                                    "width": 48,
+                                    "height": 48
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/rg960rc47jj41_All-SeeingUpvote.png?width=64&amp;height=64&amp;auto=webp&amp;s=51ea8c05c28899739458535e90d97210889aea91",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/rg960rc47jj41_All-SeeingUpvote.png?width=128&amp;height=128&amp;auto=webp&amp;s=093c7a95723b58ea1373bf62223e2ae7f11323fb",
+                                    "width": 128,
+                                    "height": 128
+                                }
+                            ],
+                            "icon_width": 2048,
+                            "start_date": null,
+                            "is_enabled": true,
+                            "description": "A glowing commendation for all to see",
+                            "end_date": null,
+                            "subreddit_coin_reward": 0,
+                            "count": 1,
+                            "name": "All-Seeing Upvote",
+                            "icon_format": null,
+                            "award_sub_type": "PREMIUM",
+                            "penny_price": null,
+                            "award_type": "global"
+                        },
+                        {
+                            "giver_coin_reward": 0,
+                            "subreddit_id": null,
+                            "is_new": false,
+                            "days_of_drip_extension": 0,
+                            "coin_price": 70,
+                            "id": "award_b1b44fa1-8179-4d84-a9ed-f25bb81f1c5f",
+                            "penny_donate": 0,
+                            "coin_reward": 0,
+                            "icon_url": "https://i.redd.it/award_images/t5_22cerq/ey2iodron2s41_Facepalm.png",
+                            "days_of_premium": 0,
+                            "icon_height": 2048,
+                            "resized_icons": [{
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/ey2iodron2s41_Facepalm.png?width=16&amp;height=16&amp;auto=webp&amp;s=d06b7de23ce8b8ea0f3e7cfd15033ac4893b72f0",
+                                    "width": 16,
+                                    "height": 16
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/ey2iodron2s41_Facepalm.png?width=32&amp;height=32&amp;auto=webp&amp;s=9c08ea897b5caa9a70e315e13df5b4a3ba33246e",
+                                    "width": 32,
+                                    "height": 32
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/ey2iodron2s41_Facepalm.png?width=48&amp;height=48&amp;auto=webp&amp;s=3971718e2c95e4869756cbdbe9e996719ed2dcc2",
+                                    "width": 48,
+                                    "height": 48
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/ey2iodron2s41_Facepalm.png?width=64&amp;height=64&amp;auto=webp&amp;s=37daf6131baa13b786daeb564ef67963874bdce0",
+                                    "width": 64,
+                                    "height": 64
+                                },
+                                {
+                                    "url": "https://preview.redd.it/award_images/t5_22cerq/ey2iodron2s41_Facepalm.png?width=128&amp;height=128&amp;auto=webp&amp;s=696adda035a7fd96e7688edeea93ad1b16d4ab1a",
+                                    "width": 128,
+                                    "height": 128
+                                }
+                            ],
+                            "icon_width": 2048,
+                            "start_date": null,
+                            "is_enabled": true,
+                            "description": "*Lowers face into palm*",
+                            "end_date": null,
+                            "subreddit_coin_reward": 0,
+                            "count": 1,
+                            "name": "Facepalm",
+                            "icon_format": "PNG",
+                            "award_sub_type": "GLOBAL",
+                            "penny_price": 0,
+                            "award_type": "global"
+                        }
+                    ],
+                    "awarders": [],
+                    "media_only": false,
+                    "can_gild": false,
+                    "spoiler": false,
+                    "locked": false,
+                    "author_flair_text": null,
+                    "treatment_tags": [],
+                    "visited": false,
+                    "removed_by": null,
+                    "num_reports": null,
+                    "distinguished": null,
+                    "subreddit_id": "t5_2qqjc",
+                    "mod_reason_by": null,
+                    "removal_reason": null,
+                    "link_flair_background_color": "",
+                    "id": "gorshc",
+                    "is_robot_indexable": true,
+                    "report_reasons": null,
+                    "author": "ThatGuy11115555",
+                    "discussion_type": null,
+                    "num_comments": 2029,
+                    "send_replies": false,
+                    "whitelist_status": "all_ads",
+                    "contest_mode": false,
+                    "mod_reports": [],
+                    "author_patreon_flair": false,
+                    "author_flair_text_color": null,
+                    "permalink": "/r/todayilearned/comments/gorshc/til_about_sarah_rector_an_impoverished_black_girl/",
+                    "parent_whitelist_status": "all_ads",
+                    "stickied": false,
+                    "url": "https://en.wikipedia.org/wiki/Sarah_Rector",
+                    "subreddit_subscribers": 22808612,
+                    "created_utc": 1590181423,
+                    "num_crossposts": 15,
+                    "media": null,
+                    "is_video": false
+                }
+            }
+        ],
+        "after": "t3_gorshc",
+        "before": null
+    }
+}

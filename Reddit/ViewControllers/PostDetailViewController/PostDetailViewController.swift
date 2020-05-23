@@ -28,10 +28,6 @@ final class PostDetailViewController: UIViewController {
     @objc func saveImage() {
         viewModel?.saveImage()
     }
-
-    deinit {
-        print("Deinited")
-    }
 }
 
 private extension PostDetailViewController {
@@ -60,9 +56,7 @@ private extension PostDetailViewController {
 
         viewModel?.alert.bind { [weak self] alertController in
             guard let alertController = alertController else { return }
-            DispatchQueue.main.async {
-                self?.present(alertController, animated: true, completion: nil)
-            }
+            self?.present(alertController, animated: true, completion: nil)
         }
     }
 }
