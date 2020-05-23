@@ -15,8 +15,9 @@ protocol PostsViewModelProtocol {
     var dataSnapshot: Observable<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?> { get }
     var dismissAllButtonEnabled: Observable<Bool> { get }
     var alert: Observable<UIAlertController?> { get }
-    var isFetching: Observable<Bool> { get }
+    var isPullingToRefresh: Observable<Bool> { get }
     var showEmptyListMessage: Observable<Bool> { get }
+    var isFetching: Bool { get }
 
     var title: String { get }
     var dismissAllButtonTitle: String { get }
@@ -30,7 +31,7 @@ protocol PostsViewModelProtocol {
 
 final class PostsViewModel: PostsViewModelProtocol {
 
-    static let postsPerPage = 10
+    static let postsPerPage = 20
 
     let title = "Reddit Posts"
     let dismissAllButtonTitle = "Dismiss All"
@@ -40,11 +41,12 @@ final class PostsViewModel: PostsViewModelProtocol {
     private var persistanceService: PersistenceServiceProtocol
     private var allPosts: [RedditPost] = []
     private var nextPageAfter: String?
+    private(set) var isFetching: Bool = false
 
     let dataSnapshot: Observable<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?> = Observable(nil)
     let dismissAllButtonEnabled: Observable<Bool> = Observable(false)
     let alert: Observable<UIAlertController?> = Observable(nil)
-    let isFetching: Observable<Bool> = Observable(false)
+    let isPullingToRefresh: Observable<Bool> = Observable(false)
     let showEmptyListMessage: Observable<Bool> = Observable(false)
 
     init(apiService: ApiServiceProtocol, persistanceService: PersistenceServiceProtocol) {
@@ -77,20 +79,27 @@ final class PostsViewModel: PostsViewModelProtocol {
 private extension PostsViewModel {
 
     func fetchPosts(after: String?) {
+        guard !isFetching else { return }
+        isFetching = true
         os_log("Fetching posts after: %@", log: OSLog.viewModel, type: .info, after ?? "--")
 
         let request = Request.reddit(after: after ?? "", limit: Self.postsPerPage)
         apiService.execute(type: RedditTopResponse.self, request: request) { [weak self] result in
-            self?.isFetching.value = false
+            self?.isPullingToRefresh.value = false
             switch result {
             case .success(let topResponse):
-                self?.nextPageAfter = topResponse?.after
+                if after != nil || self?.nextPageAfter == nil {
+                    self?.nextPageAfter = topResponse?.after
+                }
+
                 self?.updateSnapshot(posts: topResponse?.posts ?? [], append: after != nil)
                 os_log("Returned posts: %d", log: OSLog.viewModel, type: .info, topResponse?.posts.count ?? 0)
             case .failure:
                 self?.createRequestErrorAlert()
                 os_log("Fetching posts falied", log: OSLog.viewModel, type: .info)
             }
+
+            self?.isFetching = false
         }
     }
 

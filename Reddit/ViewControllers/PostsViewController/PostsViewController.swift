@@ -15,7 +15,8 @@ final class PostsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dismissAllButton: UIButton!
-    let emptyListLabel: UILabel = UILabel()
+
+    private let emptyListLabel: UILabel = UILabel()
     private var refreshControl: UIRefreshControl?
     private var dataSource: UITableViewDiffableDataSource<Int, PostCellViewModel>?
 
@@ -80,7 +81,7 @@ private extension PostsViewController {
             self?.dismissAllButton.isEnabled = dismissAllButtonEnabled
         }
 
-        viewModel?.isFetching.bind { [weak self] isFetching in
+        viewModel?.isPullingToRefresh.bind { [weak self] isFetching in
             self?.refreshControl?.endRefreshing()
         }
 
@@ -111,6 +112,15 @@ extension PostsViewController: UITableViewDelegate {
         postCellViewModel.markAsRead()
         viewController.viewModel = PostDetailViewModel(apiService: ApiService(), post: postCellViewModel.post)
         show(viewController, sender: nil)
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+        if (offsetY > contentHeight - scrollView.frame.height * 2) && viewModel?.isFetching == false  {
+            viewModel?.fetchNextPage()
+        }
     }
 }
 

@@ -39,8 +39,8 @@ final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
 
         super.init()
 
-        guard let imageURL = post.url, showMedia else { return }
-        apiService.downloadImage(imageURL: imageURL) { [weak self] result in
+        guard let thumbnail = post.thumbnailURL, showMedia else { return }
+        apiService.downloadImage(imageURL: thumbnail) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.postImage.value = image
