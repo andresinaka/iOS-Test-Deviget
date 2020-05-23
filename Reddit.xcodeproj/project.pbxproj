@@ -45,6 +45,7 @@
 		E0C151F424797CC800A14609 /* RedditTopResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F324797CC800A14609 /* RedditTopResponseTests.swift */; };
 		E0C151F624797CF600A14609 /* RedditTopResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E0C151F524797CF600A14609 /* RedditTopResponse.json */; };
 		E0C151F8247985AB00A14609 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F7247985AB00A14609 /* Array.swift */; };
+		E0C151FA2479961700A14609 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F92479961700A14609 /* OSLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		E0C151F324797CC800A14609 /* RedditTopResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTopResponseTests.swift; sourceTree = "<group>"; };
 		E0C151F524797CF600A14609 /* RedditTopResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RedditTopResponse.json; sourceTree = "<group>"; };
 		E0C151F7247985AB00A14609 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		E0C151F92479961700A14609 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 				E0C151DA247740D100A14609 /* Date.swift */,
 				E0C151F12479689C00A14609 /* UIAlertController.swift */,
 				E0C151F7247985AB00A14609 /* Array.swift */,
+				E0C151F92479961700A14609 /* OSLog.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				E0C151BC2477179400A14609 /* RedditTopResponse.swift in Sources */,
 				E0C151AF2476064700A14609 /* Request.swift in Sources */,
 				E0C151792475E31800A14609 /* AppDelegate.swift in Sources */,
+				E0C151FA2479961700A14609 /* OSLog.swift in Sources */,
 				E0C151F22479689C00A14609 /* UIAlertController.swift in Sources */,
 				E0C151B82476185A00A14609 /* PostDetailViewController.swift in Sources */,
 				E0C1519F2475ECA600A14609 /* ApiService.swift in Sources */,

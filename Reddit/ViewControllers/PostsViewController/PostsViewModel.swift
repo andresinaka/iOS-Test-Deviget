@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import os.log
 
 protocol PostsViewModelProtocol {
 
@@ -15,9 +16,11 @@ protocol PostsViewModelProtocol {
     var dismissAllButtonEnabled: Observable<Bool> { get }
     var alert: Observable<UIAlertController?> { get }
     var isFetching: Observable<Bool> { get }
+    var showEmptyListMessage: Observable<Bool> { get }
 
     var title: String { get }
     var dismissAllButtonTitle: String { get }
+    var emptyListMessage: String { get }
 
     func fetchFirstPage()
     func fetchNextPage()
@@ -31,6 +34,7 @@ final class PostsViewModel: PostsViewModelProtocol {
 
     let title = "Reddit Posts"
     let dismissAllButtonTitle = "Dismiss All"
+    let emptyListMessage = "No new posts! \nPull to refresh!"
 
     private var apiService: ApiServiceProtocol
     private var persistanceService: PersistenceServiceProtocol
@@ -40,7 +44,8 @@ final class PostsViewModel: PostsViewModelProtocol {
     let dataSnapshot: Observable<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?> = Observable(nil)
     let dismissAllButtonEnabled: Observable<Bool> = Observable(false)
     let alert: Observable<UIAlertController?> = Observable(nil)
-    var isFetching: Observable<Bool> = Observable(false)
+    let isFetching: Observable<Bool> = Observable(false)
+    let showEmptyListMessage: Observable<Bool> = Observable(false)
 
     init(apiService: ApiServiceProtocol, persistanceService: PersistenceServiceProtocol) {
         self.apiService = apiService
@@ -72,6 +77,8 @@ final class PostsViewModel: PostsViewModelProtocol {
 private extension PostsViewModel {
 
     func fetchPosts(after: String?) {
+        os_log("Fetching posts after: %@", log: OSLog.viewModel, type: .info, after ?? "--")
+
         let request = Request.reddit(after: after ?? "", limit: Self.postsPerPage)
         apiService.execute(type: RedditTopResponse.self, request: request) { [weak self] result in
             self?.isFetching.value = false
@@ -79,8 +86,10 @@ private extension PostsViewModel {
             case .success(let topResponse):
                 self?.nextPageAfter = topResponse?.after
                 self?.updateSnapshot(posts: topResponse?.posts ?? [], append: after != nil)
+                os_log("Returned posts: %d", log: OSLog.viewModel, type: .info, topResponse?.posts.count ?? 0)
             case .failure:
                 self?.createRequestErrorAlert()
+                os_log("Fetching posts falied", log: OSLog.viewModel, type: .info)
             }
         }
     }
@@ -89,7 +98,7 @@ private extension PostsViewModel {
         guard var snapshot = dataSnapshot.value else { return }
         snapshot.deleteItems(postCellViewModels)
         dataSnapshot.value = snapshot
-        dismissAllButtonEnabled.value = snapshot.numberOfItems != 0
+        handleEmptyState()
     }
 
     func updateSnapshot(posts: [RedditPost], append: Bool = true) {
@@ -99,7 +108,7 @@ private extension PostsViewModel {
 
         defer {
             allPosts += newPosts
-            dismissAllButtonEnabled.value = (dataSnapshot.value?.numberOfItems ?? 0) > 0
+            handleEmptyState()
         }
 
         let newPostCellViewModels = createPostCellViewModels(from: newPosts)
@@ -134,5 +143,10 @@ private extension PostsViewModel {
 
     func createRequestErrorAlert() {
         alert.value = UIAlertController.alertWith(title: "Error", message: "Something went wrong", buttonTitle: "Ok")
+    }
+
+    func handleEmptyState() {
+        dismissAllButtonEnabled.value = (dataSnapshot.value?.numberOfItems ?? 0) > 0
+        showEmptyListMessage.value = (dataSnapshot.value?.numberOfItems ?? 0) == 0
     }
 }

@@ -15,6 +15,7 @@ final class PostsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dismissAllButton: UIButton!
+    let emptyListLabel: UILabel = UILabel()
     private var refreshControl: UIRefreshControl?
     private var dataSource: UITableViewDiffableDataSource<Int, PostCellViewModel>?
 
@@ -43,6 +44,13 @@ final class PostsViewController: UIViewController {
 private extension PostsViewController {
 
     func setupViews() {
+        emptyListLabel.isHidden = true
+        emptyListLabel.numberOfLines = 0
+        emptyListLabel.textAlignment = .center
+        emptyListLabel.font = emptyListLabel.font.withSize(40)
+
+        tableView.backgroundView = emptyListLabel
+
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshPosts), for: .valueChanged)
         tableView.refreshControl = refreshControl
@@ -76,8 +84,13 @@ private extension PostsViewController {
             self?.refreshControl?.endRefreshing()
         }
 
+        viewModel?.showEmptyListMessage.bind { [weak self] showEmptyListMessage in
+            self?.emptyListLabel.isHidden = !showEmptyListMessage
+        }
+
         title = viewModel?.title
         dismissAllButton.setTitle(viewModel?.dismissAllButtonTitle, for: .normal)
+        emptyListLabel.text = viewModel?.emptyListMessage
     }
 
     func deselectTableViewRows() {
