@@ -122,7 +122,8 @@ extension PostsViewController: UITableViewDelegate {
         postCellViewModel.markAsRead()
         viewController.viewModel = DependencyFactory.shared.postDetailViewModel(post: postCellViewModel.post)
 
-        splitViewController?.showDetailViewController(viewController, sender: nil)
+        let encapsulatedViewController = UINavigationController(rootViewController: viewController)
+        splitViewController?.showDetailViewController(encapsulatedViewController, sender: nil)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

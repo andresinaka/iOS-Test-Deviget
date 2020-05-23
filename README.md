@@ -26,7 +26,7 @@
 ### Notes
 
 - I followed the design of `iphonedetail.png` and `iphone.png`
-- The architecture choosen for the App is MVVM. For binding I'm using a custom made `Observable` to avoid integrating a heavy library just for that. I thought about using combine but I have no experience and it was going to take me more time that the available.
+- The architecture choosen for the App is MVVM. For binding I'm using a custom made `Observable` to avoid integrating a heavy library just for that. I thought about using combine but I have no experience and it was going to take me more time than the available.
 - `UITableView` data source is a `UITableViewDiffableDataSource` and changes on the dataSource are made with `NSDiffableDataSourceSnapshot`. Super nice Api.
 - Requests to server are made with: `URLSession`
 - Using `Decodable` for `JSON` -> `Model`
@@ -60,8 +60,8 @@
 |-------------|-----------|
 | Portrait | <img src="readme-images/portrait.png" width="400"/> |
 | Landscape | <img src="readme-images/landscape.png" width="400"/> |
-| iPad Landscape | <img src="readme-images/ipad-landscape.png" width="400"/> |
-| iPad Portrait | <img src="readme-images/ipad-portrait.png" width="400"/> |
+| iPad Landscape | <img src="readme-images/ipad-landscape-new.png" width="400"/> |
+| iPad Portrait | <img src="readme-images/ipad-portrait-new.png" width="400"/> |
 
 
 

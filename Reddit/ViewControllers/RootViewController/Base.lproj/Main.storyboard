@@ -28,7 +28,6 @@
                 <splitViewController id="yF0-fL-opr" customClass="SplitViewController" customModule="Reddit" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="CgF-HA-eUM" kind="relationship" relationship="masterViewController" id="VJy-wd-s3j"/>
-                        <segue destination="yRc-LZ-4yg" kind="relationship" relationship="detailViewController" id="tqh-aE-gch"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2N1-OM-HIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -44,16 +43,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUg-yw-6gJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1876" y="-188"/>
-        </scene>
-        <!--PostDetailViewControllerID-->
-        <scene sceneID="qt7-bi-jab">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PostDetailViewController" referencedIdentifier="PostDetailViewControllerID" id="yRc-LZ-4yg" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="g5q-o8-5hE"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nqI-ax-T5j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2592" y="307"/>
         </scene>
     </scenes>
 </document>
