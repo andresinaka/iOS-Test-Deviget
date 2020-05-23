@@ -32,7 +32,7 @@
 - Using `Decodable` for `JSON` -> `Model`
 - Added some tests but it could be tested even more. Tested models, ViewModels and Service. All the `ViewModels` and `Service` implement a protocol so it's easy to Mock/Stub them for testing.
 - The state of the `hidden`/`read` is saved on `UserDefaults`. In a real world app I would have choosen something different. (`SQLite` with `SQLite.swift` or `CoreData`) but I think this is an overkill for the scenario.
-- There were no mention to localization so I didn't localize the app which I would do in real life.
+- There were no mention to localization so I didn't localize the app which I would have done in real life.
 - I didn't log much but I left `os_log` ready to be used.
 
 ### Sample app running on iPhone XS:
@@ -54,11 +54,16 @@
 | Tap on the thumbnail open full size| ![](readme-images/full-size.gif)|
 		
 
-### Orientation on iPhone:
+### Screenshots iPhone/iPad:
 
 | Orientation | Picture |
 |-------------|-----------|
-| Portrait | ![](readme-images/portrait.png) |
-| Landscape | ![](readme-images/landscape.png)|
-| iPad Landscape | ![](readme-images/ipad-landscape.png)|
-| iPad Portrait | ![](readme-images/ipad-portrait.png)|
+| Portrait | <img src="readme-images/portrait.png" width="400"/> |
+| Landscape | <img src="readme-images/landscape.png" width="400"/> |
+| iPad Landscape | <img src="readme-images/ipad-landscape.png" width="400"/> |
+| iPad Portrait | <img src="readme-images/ipad-portrait.png" width="400"/> |
+
+
+
+
+
