@@ -142,21 +142,21 @@
                                     <constraint firstItem="v0Q-0C-5tW" firstAttribute="leading" secondItem="1T7-Wm-HZy" secondAttribute="leading" constant="20" id="Pc8-zv-3od"/>
                                     <constraint firstItem="3Eg-Ec-131" firstAttribute="leading" secondItem="1T7-Wm-HZy" secondAttribute="leading" id="PqX-ez-gWH"/>
                                     <constraint firstItem="v0Q-0C-5tW" firstAttribute="centerY" secondItem="1T7-Wm-HZy" secondAttribute="centerY" id="RAf-Q2-xLs"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Eg-Ec-131" secondAttribute="bottom" id="eGY-tK-Jna"/>
                                     <constraint firstItem="3Eg-Ec-131" firstAttribute="top" secondItem="1T7-Wm-HZy" secondAttribute="top" id="jKo-7C-yFd"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Eg-Ec-131" secondAttribute="bottom" id="t5r-L0-1bM"/>
                                     <constraint firstAttribute="trailing" secondItem="3Eg-Ec-131" secondAttribute="trailing" id="yOi-bc-4mw"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="1T7-Wm-HZy" secondAttribute="bottom" id="K72-KN-8Uz"/>
-                            <constraint firstItem="1T7-Wm-HZy" firstAttribute="top" secondItem="mNc-4U-tzM" secondAttribute="bottom" id="QOY-Fb-Een"/>
+                            <constraint firstItem="SDz-e5-gPh" firstAttribute="bottom" secondItem="1T7-Wm-HZy" secondAttribute="bottom" id="OEO-og-qSh"/>
                             <constraint firstItem="SDz-e5-gPh" firstAttribute="trailing" secondItem="1T7-Wm-HZy" secondAttribute="trailing" id="TZl-DE-FCz"/>
                             <constraint firstItem="SDz-e5-gPh" firstAttribute="trailing" secondItem="mNc-4U-tzM" secondAttribute="trailing" id="UKe-K3-2Dr"/>
                             <constraint firstItem="1T7-Wm-HZy" firstAttribute="leading" secondItem="SDz-e5-gPh" secondAttribute="leading" id="gRv-UL-OYy"/>
                             <constraint firstItem="mNc-4U-tzM" firstAttribute="leading" secondItem="SDz-e5-gPh" secondAttribute="leading" id="ruL-v4-TdG"/>
                             <constraint firstItem="mNc-4U-tzM" firstAttribute="top" secondItem="SDz-e5-gPh" secondAttribute="top" id="vz0-J8-2S2"/>
+                            <constraint firstItem="1T7-Wm-HZy" firstAttribute="top" secondItem="mNc-4U-tzM" secondAttribute="bottom" id="yIc-z5-KwT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SDz-e5-gPh"/>
                     </view>

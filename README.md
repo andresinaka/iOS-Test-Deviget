@@ -33,6 +33,7 @@
 - Added some tests but it could be tested even more. Tested models, ViewModels and Service. All the `ViewModels` and `Service` implement a protocol so it's easy to Mock/Stub them for testing.
 - The state of the `hidden`/`read` is saved on `UserDefaults`. In a real world app I would have choosen something different. (`SQLite` with `SQLite.swift` or `CoreData`) but I think this is an overkill for the scenario.
 - There were no mention to localization so I didn't localize the app which I would do in real life.
+- I didn't log much but I left `os_log` ready to be used.
 
 
 ### Functionality
