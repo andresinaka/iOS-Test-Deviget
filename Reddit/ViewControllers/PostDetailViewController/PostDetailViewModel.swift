@@ -16,6 +16,7 @@ protocol PostDetailViewModelProtocol {
     var showMedia: Bool { get }
     var mediaNotSupportedText: String { get }
     var postImage: Observable<UIImage?> { get }
+    var postImageLoading: Observable<Bool> { get }
     var alert: Observable<UIAlertController?> { get }
 
     func saveImage()
@@ -28,6 +29,7 @@ final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
     let mediaNotSupportedText: String
     let postImage: Observable<UIImage?>
     let alert: Observable<UIAlertController?>
+    let postImageLoading: Observable<Bool> = Observable(true)
 
     init(apiService: ApiServiceProtocol, post: RedditPost) {
         authorName = post.author
@@ -39,13 +41,15 @@ final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
 
         super.init()
 
-        guard let thumbnail = post.thumbnailURL, showMedia else { return }
-        apiService.downloadImage(imageURL: thumbnail) { [weak self] result in
+        guard let url = post.url, showMedia else { return }
+        postImageLoading.value = true
+        apiService.downloadImage(imageURL: url) { [weak self] result in
+            self?.postImageLoading.value = false
             switch result {
             case .success(let image):
                 self?.postImage.value = image
             case .failure:
-                print("ERROR")
+                self?.createAlert(title: "Error", message: "Error downloading Image")
             }
         }?.resume()
     }
