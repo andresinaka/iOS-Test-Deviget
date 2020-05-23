@@ -35,6 +35,10 @@
 - There were no mention to localization so I didn't localize the app which I would do in real life.
 - I didn't log much but I left `os_log` ready to be used.
 
+### Sample app running on iPhone XS:
+
+[Download sample video App!](sample-app.mp4)
+
 
 ### Functionality
 	
