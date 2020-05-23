@@ -20,6 +20,7 @@ protocol PostsViewModelProtocol {
     var dismissAllButtonTitle: String { get }
 
     func fetchFirstPage()
+    func fetchNextPage()
     func dismissAll()
     func dismissPost(postCellViewModel: PostCellViewModel)
 }
@@ -34,6 +35,7 @@ final class PostsViewModel: PostsViewModelProtocol {
     private var apiService: ApiServiceProtocol
     private var persistanceService: PersistenceServiceProtocol
     private var allPosts: [RedditPost] = []
+    private var nextPageAfter: String?
 
     let dataSnapshot: Observable<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?> = Observable(nil)
     let dismissAllButtonEnabled: Observable<Bool> = Observable(false)
@@ -46,17 +48,11 @@ final class PostsViewModel: PostsViewModelProtocol {
     }
 
     func fetchFirstPage() {
-        apiService.execute(type: RedditTopResponse.self, request: Request.reddit(after: "", limit: Self.postsPerPage)) { [weak self] result in
-            self?.isFetching.value = false
-            switch result {
-            case .success(let topResponse):
-                self?.refresh(posts: topResponse?.posts ?? [])
-            case .failure:
-                DispatchQueue.main.async { [weak self] in
-                    self?.alert.value = UIAlertController.alertWith(title: "Error", message: "Something went wrong", buttonTitle: "Ok")
-                }
-            }
-        }
+        fetchPosts(after: nil)
+    }
+
+    func fetchNextPage() {
+        fetchPosts(after: nextPageAfter)
     }
 
     func dismissPost(postCellViewModel: PostCellViewModel) {
@@ -75,6 +71,20 @@ final class PostsViewModel: PostsViewModelProtocol {
 
 private extension PostsViewModel {
 
+    func fetchPosts(after: String?) {
+        let request = Request.reddit(after: after ?? "", limit: Self.postsPerPage)
+        apiService.execute(type: RedditTopResponse.self, request: request) { [weak self] result in
+            self?.isFetching.value = false
+            switch result {
+            case .success(let topResponse):
+                self?.nextPageAfter = topResponse?.after
+                self?.updateSnapshot(posts: topResponse?.posts ?? [], append: after != nil)
+            case .failure:
+                self?.createRequestErrorAlert()
+            }
+        }
+    }
+
     func hidePosts(postCellViewModels: [PostCellViewModel]) {
         guard var snapshot = dataSnapshot.value else { return }
         snapshot.deleteItems(postCellViewModels)
@@ -82,11 +92,14 @@ private extension PostsViewModel {
         dismissAllButtonEnabled.value = snapshot.numberOfItems != 0
     }
 
-    func refresh(posts: [RedditPost]) {
-        defer { allPosts += posts }
-
+    func updateSnapshot(posts: [RedditPost], append: Bool = true) {
         let newPosts = posts.filter { [weak self] newPost -> Bool in
             self?.allPosts.first { $0.id == newPost.id } == nil
+        }
+
+        defer {
+            allPosts += newPosts
+            dismissAllButtonEnabled.value = (dataSnapshot.value?.numberOfItems ?? 0) > 0
         }
 
         let newPostCellViewModels = createPostCellViewModels(from: newPosts)
@@ -100,7 +113,9 @@ private extension PostsViewModel {
             return
         }
 
-        if let firstItemIdentifier = snapshot.itemIdentifiers.first {
+        guard newPostCellViewModels.count > 0 else { return }
+
+        if let firstItemIdentifier = snapshot.itemIdentifiers.first, append == false {
             snapshot.insertItems(newPostCellViewModels, beforeItem: firstItemIdentifier)
         } else {
             snapshot.appendItems(newPostCellViewModels)
@@ -115,5 +130,9 @@ private extension PostsViewModel {
         }.filter { [weak self] postCellViewModel -> Bool in
             self?.persistanceService.isHidden(redditPost: postCellViewModel.post) == false
         }
+    }
+
+    func createRequestErrorAlert() {
+        alert.value = UIAlertController.alertWith(title: "Error", message: "Something went wrong", buttonTitle: "Ok")
     }
 }
