@@ -46,6 +46,7 @@
 		E0C151F624797CF600A14609 /* RedditTopResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = E0C151F524797CF600A14609 /* RedditTopResponse.json */; };
 		E0C151F8247985AB00A14609 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F7247985AB00A14609 /* Array.swift */; };
 		E0C151FA2479961700A14609 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F92479961700A14609 /* OSLog.swift */; };
+		E0C151FC2479A72900A14609 /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151FB2479A72900A14609 /* DependencyFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		E0C151F524797CF600A14609 /* RedditTopResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RedditTopResponse.json; sourceTree = "<group>"; };
 		E0C151F7247985AB00A14609 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E0C151F92479961700A14609 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
+		E0C151FB2479A72900A14609 /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				E0C151862475E31B00A14609 /* Info.plist */,
 				E0C151AB2476060D00A14609 /* AppError.swift */,
 				E0C151B22476152400A14609 /* Observable.swift */,
+				E0C151FB2479A72900A14609 /* DependencyFactory.swift */,
 			);
 			path = Reddit;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				E0C151DB247740D100A14609 /* Date.swift in Sources */,
 				E0C151F8247985AB00A14609 /* Array.swift in Sources */,
 				E0C151CA247724CA00A14609 /* RedditDecoder.swift in Sources */,
+				E0C151FC2479A72900A14609 /* DependencyFactory.swift in Sources */,
 				E0C1517B2475E31800A14609 /* SceneDelegate.swift in Sources */,
 				E0C151B124760A9200A14609 /* PostsViewModel.swift in Sources */,
 				E0C151E52478251C00A14609 /* PersistenceService.swift in Sources */,

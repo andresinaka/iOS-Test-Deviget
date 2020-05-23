@@ -11,7 +11,7 @@ import SafariServices
 
 final class PostsViewController: UIViewController {
 
-    var viewModel: PostsViewModelProtocol? = PostsViewModel(apiService: ApiService(), persistanceService: PersistenceService())
+    var viewModel: PostsViewModelProtocol? = DependencyFactory.shared.postsViewModel()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dismissAllButton: UIButton!
@@ -110,7 +110,7 @@ extension PostsViewController: UITableViewDelegate {
         else { return }
 
         postCellViewModel.markAsRead()
-        viewController.viewModel = PostDetailViewModel(apiService: ApiService(), post: postCellViewModel.post)
+        viewController.viewModel = DependencyFactory.shared.postDetailViewModel(post: postCellViewModel.post)
         show(viewController, sender: nil)
     }
 

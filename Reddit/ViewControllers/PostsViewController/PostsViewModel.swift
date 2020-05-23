@@ -143,8 +143,8 @@ private extension PostsViewModel {
     }
 
     func createPostCellViewModels(from posts: [RedditPost]) -> [PostCellViewModel] {
-        return posts.map { redditPost -> PostCellViewModel in
-            PostCellViewModel(apiService: apiService, persistanceService: persistanceService, post: redditPost)
+        return posts.map {
+            DependencyFactory.shared.postCellViewModel(post: $0)
         }.filter { [weak self] postCellViewModel -> Bool in
             self?.persistanceService.isHidden(redditPost: postCellViewModel.post) == false
         }
