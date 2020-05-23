@@ -18,21 +18,21 @@
 - Number of comments ✅
 - Unread status ✅
 
-| Small Title | Big Title |
-|-------------|-----------|
-|![Big title](readme-images/small-title.png)|![Small title](readme-images/big-title.png)|
+| Small Title | Big Title | No Thumbnail |
+|-------------|-----------|--------------|
+|![Big title](readme-images/small-title.png)|![Small title](readme-images/big-title.png)|![Small title](readme-images/no-thumbnail.png)|
 
 
 ### Notes
 
 - I followed the design of `iphonedetail.png` and `iphone.png`
 - The architecture choosen for the App is MVVM. For binding I'm using a custom made `Observable` to avoid integrating a heavy library just for that. I thought about using combine but I have no experience and it was going to take me more time that the available.
-- `UITableView` data source is a `UITableViewDiffableDataSource` and changes on the dataSource are made with `UITableViewDiffableDataSource`. Super nice Api.
+- `UITableView` data source is a `UITableViewDiffableDataSource` and changes on the dataSource are made with `NSDiffableDataSourceSnapshot`. Super nice Api.
 - Requests to server are made with: `URLSession`
 - Using `Decodable` for `JSON` -> `Model`
 - Added some tests but it could be tested even more. Tested models, ViewModels and Service. All the `ViewModels` and `Service` implement a protocol so it's easy to Mock/Stub them for testing.
 - The state of the `hidden`/`read` is saved on `UserDefaults`. In a real world app I would have choosen something different. (`SQLite` with `SQLite.swift` or `CoreData`) but I think this is an overkill for the scenario.
-- There were no mention to localization so I didn't localize anything.
+- There were no mention to localization so I didn't localize the app which I would do in real life.
 
 
 ### Functionality
