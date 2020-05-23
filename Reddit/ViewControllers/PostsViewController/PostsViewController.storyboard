@@ -114,25 +114,47 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-Ec-131">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1T7-Wm-HZy">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Eg-Ec-131">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="KHU-A4-BoG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="dismissAllAction:" destination="vd4-GS-tbP" eventType="touchUpInside" id="Soa-WY-tY0"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="v0Q-0C-5tW">
+                                        <rect key="frame" x="20" y="15" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="BZz-SB-El0"/>
+                                            <constraint firstAttribute="height" constant="20" id="Vvr-W8-hbK"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="KHU-A4-BoG"/>
+                                    <constraint firstAttribute="height" constant="50" id="Hf3-mq-Xjs"/>
+                                    <constraint firstItem="v0Q-0C-5tW" firstAttribute="leading" secondItem="1T7-Wm-HZy" secondAttribute="leading" constant="20" id="Pc8-zv-3od"/>
+                                    <constraint firstItem="3Eg-Ec-131" firstAttribute="leading" secondItem="1T7-Wm-HZy" secondAttribute="leading" id="PqX-ez-gWH"/>
+                                    <constraint firstItem="v0Q-0C-5tW" firstAttribute="centerY" secondItem="1T7-Wm-HZy" secondAttribute="centerY" id="RAf-Q2-xLs"/>
+                                    <constraint firstItem="3Eg-Ec-131" firstAttribute="top" secondItem="1T7-Wm-HZy" secondAttribute="top" id="jKo-7C-yFd"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Eg-Ec-131" secondAttribute="bottom" id="t5r-L0-1bM"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Eg-Ec-131" secondAttribute="trailing" id="yOi-bc-4mw"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="dismissAllAction:" destination="vd4-GS-tbP" eventType="touchUpInside" id="Soa-WY-tY0"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="SDz-e5-gPh" firstAttribute="bottom" secondItem="3Eg-Ec-131" secondAttribute="bottom" id="Agc-KN-kNb"/>
-                            <constraint firstItem="SDz-e5-gPh" firstAttribute="trailing" secondItem="3Eg-Ec-131" secondAttribute="trailing" id="NQa-4X-3m2"/>
-                            <constraint firstItem="3Eg-Ec-131" firstAttribute="top" secondItem="mNc-4U-tzM" secondAttribute="bottom" id="PaU-5c-Wl7"/>
+                            <constraint firstAttribute="bottom" secondItem="1T7-Wm-HZy" secondAttribute="bottom" id="K72-KN-8Uz"/>
+                            <constraint firstItem="1T7-Wm-HZy" firstAttribute="top" secondItem="mNc-4U-tzM" secondAttribute="bottom" id="QOY-Fb-Een"/>
+                            <constraint firstItem="SDz-e5-gPh" firstAttribute="trailing" secondItem="1T7-Wm-HZy" secondAttribute="trailing" id="TZl-DE-FCz"/>
                             <constraint firstItem="SDz-e5-gPh" firstAttribute="trailing" secondItem="mNc-4U-tzM" secondAttribute="trailing" id="UKe-K3-2Dr"/>
-                            <constraint firstItem="3Eg-Ec-131" firstAttribute="leading" secondItem="SDz-e5-gPh" secondAttribute="leading" id="WZr-ef-mBL"/>
+                            <constraint firstItem="1T7-Wm-HZy" firstAttribute="leading" secondItem="SDz-e5-gPh" secondAttribute="leading" id="gRv-UL-OYy"/>
                             <constraint firstItem="mNc-4U-tzM" firstAttribute="leading" secondItem="SDz-e5-gPh" secondAttribute="leading" id="ruL-v4-TdG"/>
                             <constraint firstItem="mNc-4U-tzM" firstAttribute="top" secondItem="SDz-e5-gPh" secondAttribute="top" id="vz0-J8-2S2"/>
                         </constraints>
@@ -140,6 +162,7 @@
                     </view>
                     <connections>
                         <outlet property="dismissAllButton" destination="3Eg-Ec-131" id="1tj-TL-1Tt"/>
+                        <outlet property="loadingMoreActivityIndicatorView" destination="v0Q-0C-5tW" id="wcV-jP-TBA"/>
                         <outlet property="tableView" destination="mNc-4U-tzM" id="zX5-VK-1iM"/>
                     </connections>
                 </viewController>

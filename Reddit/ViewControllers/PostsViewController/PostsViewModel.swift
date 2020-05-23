@@ -16,6 +16,7 @@ protocol PostsViewModelProtocol {
     var dismissAllButtonEnabled: Observable<Bool> { get }
     var alert: Observable<UIAlertController?> { get }
     var isPullingToRefresh: Observable<Bool> { get }
+    var isLoadingMore: Observable<Bool> { get }
     var showEmptyListMessage: Observable<Bool> { get }
     var isFetching: Bool { get }
 
@@ -48,6 +49,7 @@ final class PostsViewModel: PostsViewModelProtocol {
     let alert: Observable<UIAlertController?> = Observable(nil)
     let isPullingToRefresh: Observable<Bool> = Observable(false)
     let showEmptyListMessage: Observable<Bool> = Observable(false)
+    let isLoadingMore: Observable<Bool> = Observable(true)
 
     init(apiService: ApiServiceProtocol, persistanceService: PersistenceServiceProtocol) {
         self.apiService = apiService
@@ -59,6 +61,7 @@ final class PostsViewModel: PostsViewModelProtocol {
     }
 
     func fetchNextPage() {
+        isLoadingMore.value = true
         fetchPosts(after: nextPageAfter)
     }
 
@@ -94,12 +97,13 @@ private extension PostsViewModel {
 
                 self?.updateSnapshot(posts: topResponse?.posts ?? [], append: after != nil)
                 os_log("Returned posts: %d", log: OSLog.viewModel, type: .info, topResponse?.posts.count ?? 0)
-            case .failure:
+            case .failure(let error):
                 self?.createRequestErrorAlert()
-                os_log("Fetching posts falied", log: OSLog.viewModel, type: .info)
+                os_log("Fetching posts failed: %@ ", log: OSLog.viewModel, type: .info, error.localizedDescription)
             }
 
             self?.isFetching = false
+            self?.isLoadingMore.value = false
         }
     }
 

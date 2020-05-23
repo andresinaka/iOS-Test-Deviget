@@ -15,6 +15,7 @@ final class PostsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dismissAllButton: UIButton!
+    @IBOutlet weak var loadingMoreActivityIndicatorView: UIActivityIndicatorView!
 
     private let emptyListLabel: UILabel = UILabel()
     private var refreshControl: UIRefreshControl?
@@ -87,6 +88,15 @@ private extension PostsViewController {
 
         viewModel?.showEmptyListMessage.bind { [weak self] showEmptyListMessage in
             self?.emptyListLabel.isHidden = !showEmptyListMessage
+        }
+
+        viewModel?.isLoadingMore.bind { [weak self] isLoadingMore in
+            self?.loadingMoreActivityIndicatorView.isHidden = !isLoadingMore
+        }
+
+        viewModel?.alert.bind { [weak self] alertViewController in
+            guard let alertViewController = alertViewController else { return }
+            self?.present(alertViewController, animated: true, completion: nil)
         }
 
         title = viewModel?.title
