@@ -24,7 +24,7 @@ class PostCellViewModelTests: XCTestCase {
             postHint: .image
         )
 
-        let postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), post: redditPost)
+        let postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistanceService: PersistenceServiceMock(), post: redditPost)
         XCTAssertEqual(postCellViewModel.title, "Title")
         XCTAssertEqual(postCellViewModel.authorName, "Author")
         XCTAssertEqual(postCellViewModel.commentsText, "140 Comments")

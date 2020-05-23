@@ -31,7 +31,6 @@
 		E0C151C72477242100A14609 /* RedditPostWithThumbnail.json in Resources */ = {isa = PBXBuildFile; fileRef = E0C151C62477242100A14609 /* RedditPostWithThumbnail.json */; };
 		E0C151CA247724CA00A14609 /* RedditDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151C9247724CA00A14609 /* RedditDecoder.swift */; };
 		E0C151CE24772C4D00A14609 /* RedditPostNoThumbnail.json in Resources */ = {isa = PBXBuildFile; fileRef = E0C151CD24772C4D00A14609 /* RedditPostNoThumbnail.json */; };
-		E0C151D1247730AA00A14609 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151D0247730AA00A14609 /* String.swift */; };
 		E0C151D32477327D00A14609 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151D22477327D00A14609 /* PostCellViewModel.swift */; };
 		E0C151D924773EFA00A14609 /* PostCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151D824773EFA00A14609 /* PostCellViewModelTests.swift */; };
 		E0C151DB247740D100A14609 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151DA247740D100A14609 /* Date.swift */; };
@@ -41,6 +40,7 @@
 		E0C151E824782D3A00A14609 /* PersistenceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151E724782D3A00A14609 /* PersistenceServiceTests.swift */; };
 		E0C151EC24782DAA00A14609 /* UserDefaultsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */; };
 		E0C151EE24782DD800A14609 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151ED24782DD800A14609 /* UserDefaultsService.swift */; };
+		E0C151F02478353300A14609 /* PersistenceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151EF2478353300A14609 /* PersistenceServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +82,6 @@
 		E0C151C62477242100A14609 /* RedditPostWithThumbnail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RedditPostWithThumbnail.json; sourceTree = "<group>"; };
 		E0C151C9247724CA00A14609 /* RedditDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditDecoder.swift; sourceTree = "<group>"; };
 		E0C151CD24772C4D00A14609 /* RedditPostNoThumbnail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RedditPostNoThumbnail.json; sourceTree = "<group>"; };
-		E0C151D0247730AA00A14609 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E0C151D22477327D00A14609 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		E0C151D824773EFA00A14609 /* PostCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModelTests.swift; sourceTree = "<group>"; };
 		E0C151DA247740D100A14609 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		E0C151E724782D3A00A14609 /* PersistenceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceTests.swift; sourceTree = "<group>"; };
 		E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceMock.swift; sourceTree = "<group>"; };
 		E0C151ED24782DD800A14609 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		E0C151EF2478353300A14609 /* PersistenceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				E0C151C9247724CA00A14609 /* RedditDecoder.swift */,
-				E0C151D0247730AA00A14609 /* String.swift */,
 				E0C151DA247740D100A14609 /* Date.swift */,
 			);
 			path = Extensions;
@@ -279,6 +278,7 @@
 			children = (
 				E0C151DD24776A2E00A14609 /* ApiServiceMock.swift */,
 				E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */,
+				E0C151EF2478353300A14609 /* PersistenceServiceMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -422,7 +422,6 @@
 				E0C151B32476152400A14609 /* Observable.swift in Sources */,
 				E0C151A32475ECEA00A14609 /* PostsViewController.swift in Sources */,
 				E0C151A82475EFA700A14609 /* PostCell.swift in Sources */,
-				E0C151D1247730AA00A14609 /* String.swift in Sources */,
 				E0C151D32477327D00A14609 /* PostCellViewModel.swift in Sources */,
 				E0C151AC2476060D00A14609 /* AppError.swift in Sources */,
 			);
@@ -439,6 +438,7 @@
 				E0C151E824782D3A00A14609 /* PersistenceServiceTests.swift in Sources */,
 				E0C151C42477233E00A14609 /* FileHelpers.swift in Sources */,
 				E0C151C0247722DA00A14609 /* RedditPostTests.swift in Sources */,
+				E0C151F02478353300A14609 /* PersistenceServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

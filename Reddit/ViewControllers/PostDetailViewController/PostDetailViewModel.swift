@@ -18,21 +18,21 @@ protocol PostDetailViewModelProtocol {
 }
 
 final class PostDetailViewModel: PostDetailViewModelProtocol {
-    var authorName: String
-    var title: String
-    var showMedia: Bool
-    var mediaNotSupportedText: String
-    var postImage: Observable<UIImage?>
+    let authorName: String
+    let title: String
+    let showMedia: Bool
+    let mediaNotSupportedText: String
+    let postImage: Observable<UIImage?>
 
     init(apiService: ApiServiceProtocol, post: RedditPost) {
         authorName = post.author
         title = post.title
         showMedia = post.postHint == .image
-        mediaNotSupportedText = "Media not supported"
+        mediaNotSupportedText = "No images available"
         postImage = Observable(nil)
 
-        guard let thumbnailURL = post.url, showMedia else { return }
-        apiService.downloadImage(imageURL: thumbnailURL) { [weak self] result in
+        guard let imageURL = post.url, showMedia else { return }
+        apiService.downloadImage(imageURL: imageURL) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.postImage.value = image

@@ -25,7 +25,7 @@ class PostDetailViewModelTests: XCTestCase {
         let postCellViewModel = PostDetailViewModel(apiService: ApiServiceMock(), post: redditPost)
         XCTAssertEqual(postCellViewModel.title, "Title")
         XCTAssertEqual(postCellViewModel.authorName, "Author")
-        XCTAssertEqual(postCellViewModel.mediaNotSupportedText, "Media not supported")
+        XCTAssertEqual(postCellViewModel.mediaNotSupportedText, "No images available")
         XCTAssertTrue(postCellViewModel.showMedia)
 
     }

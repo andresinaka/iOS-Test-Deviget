@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import SafariServices
 
 final class PostsViewController: UIViewController {
 
-    var viewModel: PostsViewModelProtocol? = PostsViewModel(apiService: ApiService())
+    var viewModel: PostsViewModelProtocol? = PostsViewModel(apiService: ApiService(), persistanceService: PersistenceService())
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dismissAllButton: UIButton!
     private var refreshControl: UIRefreshControl?
+    private var dataSource: UITableViewDiffableDataSource<Int, PostCellViewModel>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +32,12 @@ final class PostsViewController: UIViewController {
     }
 
     @objc func refreshPosts(refreshControl: UIRefreshControl) {
-        viewModel?.postCellViewModels.value = []
 
         refreshControl.endRefreshing()
+    }
+
+    @IBAction func dismissAllAction(_ sender: Any) {
+        viewModel?.dismissAll()
     }
 }
 
@@ -42,18 +48,33 @@ private extension PostsViewController {
         refreshControl?.addTarget(self, action: #selector(refreshPosts), for: .valueChanged)
         tableView.refreshControl = refreshControl
 
+        dataSource = UITableViewDiffableDataSource<Int, PostCellViewModel>(tableView: tableView) { tableView, indexPath, cellViewModel in
+            guard let postCell = tableView.dequeueReusableCell(withIdentifier: PostCell.identifier) as? PostCell else { return UITableViewCell() }
+            postCell.delegate = self
+            postCell.setup(with: cellViewModel)
+            cellViewModel.downloadImage()
+            return postCell
+        }
+
         tableView.delegate = self
-        tableView.dataSource = self
+        tableView.dataSource = dataSource
+        tableView.estimatedRowHeight = 140
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     func bindViewModel() {
-        viewModel?.postCellViewModels.bind { [weak self] _ in
-            self?.tableView.reloadData()
+        viewModel?.dataSnapshot.bind { [weak self] snapshot in
+            guard let snapshot = snapshot else { return }
+            let shouldAnimate = self?.tableView.numberOfSections != 0
+            self?.dataSource?.apply(snapshot, animatingDifferences: shouldAnimate, completion: nil)
         }
 
-        viewModel?.title.bind { [weak self] title in
-            self?.title = title
+        viewModel?.dismissAllButtonEnabled.bind { [weak self] dismissAllButtonEnabled in
+            self?.dismissAllButton.isEnabled = dismissAllButtonEnabled
         }
+
+        title = viewModel?.title
+        dismissAllButton.setTitle(viewModel?.dismissAllButtonTitle, for: .normal)
     }
 
     func deselectTableViewRows() {
@@ -62,35 +83,40 @@ private extension PostsViewController {
     }
 }
 
-extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.postCellViewModels.value.count ?? 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cellViewModel = viewModel?.postCellViewModels.value[indexPath.row],
-            let postCell = tableView.dequeueReusableCell(withIdentifier: PostCell.identifier) as? PostCell
-        else { return UITableViewCell() }
-
-        postCell.setup(with: cellViewModel)
-        return postCell
-    }
+extension PostsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "PostDetailViewController", bundle: nil)
         guard
             let viewController = storyboard.instantiateViewController(withIdentifier: "PostDetailViewControllerId") as? PostDetailViewController,
-            let postCellViewModel = viewModel?.postCellViewModels.value[indexPath.row]
+            let postCellViewModel = dataSource?.itemIdentifier(for: indexPath)
         else { return }
 
+        postCellViewModel.markAsRead()
         viewController.viewModel = PostDetailViewModel(apiService: ApiService(), post: postCellViewModel.post)
         show(viewController, sender: nil)
     }
+}
 
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cellViewModel = viewModel?.postCellViewModels.value[indexPath.row]
-        cellViewModel?.downloadImage()
+extension PostsViewController: PostCellDelegate {
+
+    func open(url: URL) {
+        let safariConfig = SFSafariViewController.Configuration()
+        safariConfig.entersReaderIfAvailable = true
+        safariConfig.barCollapsingEnabled = true
+
+        let safariViewController = SFSafariViewController(url: url, configuration: safariConfig)
+        safariViewController.modalPresentationStyle = .automatic
+        present(safariViewController, animated: true, completion: nil)
+
+    }
+
+    func dismissTapped(cell: PostCell) {
+        guard
+            let indexPath = tableView.indexPath(for: cell),
+            let postCellViewModel = dataSource?.itemIdentifier(for: indexPath)
+        else { return }
+
+        viewModel?.dismissPost(postCellViewModel: postCellViewModel)
     }
 }

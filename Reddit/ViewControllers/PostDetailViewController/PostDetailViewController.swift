@@ -16,12 +16,17 @@ final class PostDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mediaImageView: UIImageView!
     @IBOutlet weak var mediaNotSupportedLabel: UILabel!
+    weak var saveImageButton: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViews()
         bindViewModel()
+    }
+
+    @objc func saveImage() {
+        print("HEY THERE")
     }
 
     deinit {
@@ -32,7 +37,11 @@ final class PostDetailViewController: UIViewController {
 private extension PostDetailViewController {
 
     func setupViews() {
+        let saveImageButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveImage))
+        navigationItem.rightBarButtonItems = [saveImageButton]
+        saveImageButton.isEnabled = false
 
+        self.saveImageButton = saveImageButton
     }
 
     func bindViewModel() {
@@ -46,6 +55,7 @@ private extension PostDetailViewController {
 
         viewModel?.postImage.bind { [weak self] postImage in
             self?.mediaImageView.image = postImage
+            self?.saveImageButton?.isEnabled = postImage != nil
         }
     }
 }

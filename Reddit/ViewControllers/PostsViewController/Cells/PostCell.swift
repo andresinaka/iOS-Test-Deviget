@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol PostCellDelegate: class {
+    func dismissTapped(cell: PostCell)
+    func open(url: URL)
+}
+
 final class PostCell: UITableViewCell {
     static var identifier = "PostCell"
+
+    weak var delegate: PostCellDelegate?
 
     @IBOutlet weak var unreadView: UIView!
     @IBOutlet weak var authorNameLabel: UILabel!
@@ -19,15 +26,23 @@ final class PostCell: UITableViewCell {
     @IBOutlet weak var commentsCountLabel: UILabel!
     @IBOutlet weak var dismissButton: UIButton!
 
+    private var mediaURL: URL?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         unreadView.layer.cornerRadius = 5
         thumbnailImageView.layer.cornerRadius = 3
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.openURL))
+        thumbnailImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    @IBAction func dismissPost(_ sender: Any) {
+        delegate?.dismissTapped(cell: self)
     }
 
     func setup(with viewModel: PostCellViewModelProtocol) {
         authorNameLabel.text = viewModel.authorName
-        unreadView.isHidden = viewModel.unread
         titleLabel.text = viewModel.title
         commentsCountLabel.text = viewModel.commentsText
         dismissButton.setTitle(viewModel.dismissButtonTitle, for: .normal)
@@ -37,5 +52,16 @@ final class PostCell: UITableViewCell {
         viewModel.postImage.bind { [weak self] image in
             self?.thumbnailImageView.image = image
         }
+
+        viewModel.unread.bind { [weak self] unread in
+            self?.unreadView.isHidden = !unread
+        }
+
+        mediaURL = viewModel.postImageURL
+    }
+
+    @objc func openURL() {
+        guard let mediaURL = mediaURL else { return }
+        delegate?.open(url: mediaURL)
     }
 }

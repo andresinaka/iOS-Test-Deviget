@@ -16,7 +16,7 @@ protocol UserDefaultsServiceProtocol {
 
 final class UserDefaultsService: UserDefaultsServiceProtocol {
 
-    private let userDefaults = UserDefaults()
+    private let userDefaults = UserDefaults.standard
 
     func set(_ value: Bool, forKey defaultName: String) {
         userDefaults.set(value, forKey: defaultName)
