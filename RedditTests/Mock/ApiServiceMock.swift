@@ -15,7 +15,7 @@ struct ApiServiceMock: ApiServiceProtocol {
         return nil
     }
 
-    func downloadImage(imageURL: URL?, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask? {
+    func downloadImage(imageURL: URL, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask? {
         return nil
     }
 }

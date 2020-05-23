@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 protocol PostDetailViewModelProtocol {
     var authorName: String { get }
@@ -15,14 +16,18 @@ protocol PostDetailViewModelProtocol {
     var showMedia: Bool { get }
     var mediaNotSupportedText: String { get }
     var postImage: Observable<UIImage?> { get }
+    var alert: Observable<UIAlertController?> { get }
+
+    func saveImage()
 }
 
-final class PostDetailViewModel: PostDetailViewModelProtocol {
+final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
     let authorName: String
     let title: String
     let showMedia: Bool
     let mediaNotSupportedText: String
     let postImage: Observable<UIImage?>
+    let alert: Observable<UIAlertController?>
 
     init(apiService: ApiServiceProtocol, post: RedditPost) {
         authorName = post.author
@@ -30,6 +35,9 @@ final class PostDetailViewModel: PostDetailViewModelProtocol {
         showMedia = post.postHint == .image
         mediaNotSupportedText = "No images available"
         postImage = Observable(nil)
+        alert = Observable(nil)
+
+        super.init()
 
         guard let imageURL = post.url, showMedia else { return }
         apiService.downloadImage(imageURL: imageURL) { [weak self] result in
@@ -40,5 +48,45 @@ final class PostDetailViewModel: PostDetailViewModelProtocol {
                 print("ERROR")
             }
         }?.resume()
+    }
+
+    func saveImage() {
+        guard PHPhotoLibrary.authorizationStatus() == .authorized  else {
+            requestPhotosAuthorization()
+            return
+        }
+
+        guard let image = postImage.value else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        alert.value = UIAlertController.alertWith(
+            title: error != nil ? "Save Error" : "Saved Successfully",
+            message: error != nil ? error?.localizedDescription ?? "" : "The image was added to your gallery",
+            buttonTitle: "Ok"
+        )
+    }
+}
+
+private extension PostDetailViewModel {
+
+    func requestPhotosAuthorization() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        if status == .notDetermined {
+            PHPhotoLibrary.requestAuthorization { status in
+                if status == .denied {
+                    self.alert.value = UIAlertController.alertWith(title: "Warning!", message: "Error with Gallery Permissions", buttonTitle: "Ok")
+                }
+
+                if status == .authorized {
+                    self.saveImage()
+                }
+            }
+        }
+
+        if status == .denied || status == .restricted {
+            alert.value = UIAlertController.alertWith(title: "Warning!", message: "Error with Gallery Permissions", buttonTitle: "Ok")
+        }
     }
 }

@@ -14,7 +14,7 @@ protocol ApiServiceProtocol {
     func execute<T: Decodable>(type: T.Type, request: RequestProtocol, completion: @escaping (Result<T?, Error>) -> Void) -> URLSessionDataTask?
 
     @discardableResult
-    func downloadImage(imageURL: URL?, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask?
+    func downloadImage(imageURL: URL, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask?
 }
 
 struct ApiService: ApiServiceProtocol {
@@ -68,11 +68,7 @@ struct ApiService: ApiServiceProtocol {
     }
 
     @discardableResult
-    func downloadImage(imageURL: URL?, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask? {
-        guard let imageURL = imageURL else {
-            completion(Result.failure(AppError.generic("Missing url")))
-            return nil
-        }
+    func downloadImage(imageURL: URL, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask? {
 
         return session.dataTask(with: imageURL) { (data, urlResponse, error) in
 

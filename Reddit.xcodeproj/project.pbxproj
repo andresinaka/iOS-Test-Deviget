@@ -41,6 +41,7 @@
 		E0C151EC24782DAA00A14609 /* UserDefaultsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */; };
 		E0C151EE24782DD800A14609 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151ED24782DD800A14609 /* UserDefaultsService.swift */; };
 		E0C151F02478353300A14609 /* PersistenceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151EF2478353300A14609 /* PersistenceServiceMock.swift */; };
+		E0C151F22479689C00A14609 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F12479689C00A14609 /* UIAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		E0C151EB24782DAA00A14609 /* UserDefaultsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceMock.swift; sourceTree = "<group>"; };
 		E0C151ED24782DD800A14609 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		E0C151EF2478353300A14609 /* PersistenceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceMock.swift; sourceTree = "<group>"; };
+		E0C151F12479689C00A14609 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			children = (
 				E0C151C9247724CA00A14609 /* RedditDecoder.swift */,
 				E0C151DA247740D100A14609 /* Date.swift */,
+				E0C151F12479689C00A14609 /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				E0C151BC2477179400A14609 /* RedditTopResponse.swift in Sources */,
 				E0C151AF2476064700A14609 /* Request.swift in Sources */,
 				E0C151792475E31800A14609 /* AppDelegate.swift in Sources */,
+				E0C151F22479689C00A14609 /* UIAlertController.swift in Sources */,
 				E0C151B82476185A00A14609 /* PostDetailViewController.swift in Sources */,
 				E0C1519F2475ECA600A14609 /* ApiService.swift in Sources */,
 				E0C151BA2476188100A14609 /* PostDetailViewModel.swift in Sources */,

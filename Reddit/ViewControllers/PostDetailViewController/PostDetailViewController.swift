@@ -26,7 +26,7 @@ final class PostDetailViewController: UIViewController {
     }
 
     @objc func saveImage() {
-        print("HEY THERE")
+        viewModel?.saveImage()
     }
 
     deinit {
@@ -56,6 +56,13 @@ private extension PostDetailViewController {
         viewModel?.postImage.bind { [weak self] postImage in
             self?.mediaImageView.image = postImage
             self?.saveImageButton?.isEnabled = postImage != nil
+        }
+
+        viewModel?.alert.bind { [weak self] alertController in
+            guard let alertController = alertController else { return }
+            DispatchQueue.main.async {
+                self?.present(alertController, animated: true, completion: nil)
+            }
         }
     }
 }

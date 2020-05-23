@@ -62,7 +62,7 @@ final class PostCellViewModel: Hashable, PostCellViewModelProtocol {
     }
 
     func downloadImage() {
-        guard downloadImageTask == nil else { return }
+        guard downloadImageTask == nil, let thumbnailURL = thumbnailURL else { return }
         downloadImageTask = apiService.downloadImage(imageURL: thumbnailURL) { [weak self] result in
             switch result {
             case .success(let image):
