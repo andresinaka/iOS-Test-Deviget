@@ -51,7 +51,7 @@ final class PostCellViewModel: Hashable, PostCellViewModelProtocol {
 
         authorName = post.author
         title = post.title
-        commentsText = "\(post.numComments) Comments"
+        commentsText = "\(post.numComments) \(post.numComments == 1 ? "Comment" : "Comments")" // This can be improved if localized using 
         timeAgo = post.createdUTC.timeAgoDisplay()
         dismissButtonTitle = "Dismiss Post"
         showThumbnail = post.thumbnailURL != nil

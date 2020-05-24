@@ -14,7 +14,7 @@ class PostCellViewModelTests: XCTestCase {
     func testPostWithImage() throws {
 
         let fixedDate = Date(timeIntervalSince1970: 1590015768)
-        let redditPost = RedditPost(
+        var redditPost = RedditPost(
             id: "some-id",
             title: "Title",
             author: "Author",
@@ -24,12 +24,16 @@ class PostCellViewModelTests: XCTestCase {
             postHint: .image
         )
 
-        let postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistanceService: PersistenceServiceMock(), post: redditPost)
+        var postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistanceService: PersistenceServiceMock(), post: redditPost)
         XCTAssertEqual(postCellViewModel.title, "Title")
         XCTAssertEqual(postCellViewModel.authorName, "Author")
         XCTAssertEqual(postCellViewModel.commentsText, "140 Comments")
         XCTAssertEqual(postCellViewModel.dismissButtonTitle, "Dismiss Post")
         XCTAssertEqual(postCellViewModel.timeAgo, redditPost.createdUTC.timeAgoDisplay())
         XCTAssertTrue(postCellViewModel.showThumbnail)
+
+        redditPost.numComments = 1
+        postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistanceService: PersistenceServiceMock(), post: redditPost)
+        XCTAssertEqual(postCellViewModel.commentsText, "1 Comment")
     }
 }
