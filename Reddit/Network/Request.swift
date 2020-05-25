@@ -20,7 +20,9 @@ enum Request: RequestProtocol {
         switch self {
         case .reddit(let after, let limit):
             guard let url = URL(string: "https://api.reddit.com/top?limit=\(limit)&after=\(after)") else { return nil }
-            return URLRequest(url: url)
+            var request = URLRequest(url: url)
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            return request
         }
     }
 }
