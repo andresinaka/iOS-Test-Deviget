@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Combine
+import Kingfisher
 
-protocol PostCellDelegate: class {
+protocol PostCellDelegate: AnyObject {
     func dismissTapped(cell: PostCell)
     func open(url: URL)
 }
@@ -16,6 +18,7 @@ protocol PostCellDelegate: class {
 final class PostCell: UITableViewCell {
     static var identifier = "PostCell"
 
+    lazy var cancellables = Set<AnyCancellable>()
     weak var delegate: PostCellDelegate?
 
     @IBOutlet weak var unreadView: UIView!
@@ -49,13 +52,16 @@ final class PostCell: UITableViewCell {
         timeAgoLabel.text = viewModel.timeAgo
         thumbnailImageView.isHidden = !viewModel.showThumbnail
 
-        viewModel.postImage.bind { [weak self] image in
-            self?.thumbnailImageView.image = image
-        }
+        thumbnailImageView.kf.setImage(
+            with: viewModel.thumbnailURL,
+            placeholder: nil,
+            options: nil,
+            completionHandler: nil
+        )
 
-        viewModel.unread.bind { [weak self] unread in
+        viewModel.unread.sink { [weak self] unread in
             self?.unreadView.isHidden = !unread
-        }
+        }.store(in: &cancellables)
 
         mediaURL = viewModel.postImageURL
     }

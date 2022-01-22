@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol PostCellViewModelProtocol {
     var authorName: String { get }
@@ -16,12 +17,11 @@ protocol PostCellViewModelProtocol {
     var timeAgo: String { get }
     var dismissButtonTitle: String { get }
     var showThumbnail: Bool { get }
-    var postImage: Observable<UIImage?> { get }
-    var unread: Observable<Bool> { get }
+    var unread: CurrentValueSubject<Bool, Never> { get }
     var post: RedditPost { get }
     var postImageURL: URL? { get }
+    var thumbnailURL: URL? { get }
 
-    func downloadImage()
     func markAsRead()
 }
 
@@ -35,47 +35,33 @@ final class PostCellViewModel: Hashable, PostCellViewModelProtocol {
     let timeAgo: String
     let dismissButtonTitle: String
     let showThumbnail: Bool
-    let postImage: Observable<UIImage?>
-    let unread: Observable<Bool>
+    let unread: CurrentValueSubject<Bool, Never>
     let postImageURL: URL?
+    let thumbnailURL: URL?
 
     private var apiService: ApiServiceProtocol
-    private var persistanceService: PersistenceServiceProtocol
-    private var thumbnailURL: URL?
+    private var persistenceService: PersistenceServiceProtocol
+
     private var downloadImageTask: URLSessionDataTask?
 
-    init(apiService: ApiServiceProtocol, persistanceService: PersistenceServiceProtocol, post: RedditPost) {
+    init(apiService: ApiServiceProtocol, persistenceService: PersistenceServiceProtocol, post: RedditPost) {
         self.apiService = apiService
         self.post = post
-        self.persistanceService = persistanceService
+        self.persistenceService = persistenceService
 
         authorName = post.author
         title = post.title
-        commentsText = "\(post.numComments) \(post.numComments == 1 ? "Comment" : "Comments")" // This can be improved if localized using 
+        commentsText = "comments".localized(args: post.numComments)
         timeAgo = post.createdUTC.timeAgoDisplay()
-        dismissButtonTitle = "Dismiss Post"
+        dismissButtonTitle = "dismiss_post".localized()
         showThumbnail = post.thumbnailURL != nil
-        postImage = Observable(nil)
-        unread = Observable(!persistanceService.isRead(redditPost: post))
+        unread = CurrentValueSubject(!persistenceService.isRead(redditPost: post))
         thumbnailURL = post.thumbnailURL
         postImageURL = post.postHint == RedditPost.PostHint.image ? post.url : nil
     }
 
-    func downloadImage() {
-        guard downloadImageTask == nil, let thumbnailURL = thumbnailURL else { return }
-        downloadImageTask = apiService.downloadImage(imageURL: thumbnailURL) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.postImage.value = image
-            case .failure:
-                print("ERROR")
-            }
-        }
-        downloadImageTask?.resume()
-    }
-
     func markAsRead() {
-        persistanceService.setRead(redditPost: post)
+        persistenceService.setRead(redditPost: post)
         unread.value = false
     }
 

@@ -8,10 +8,13 @@
 
 import UIKit
 import SafariServices
+import Combine
 
 final class PostsViewController: UIViewController {
 
     var viewModel: PostsViewModelProtocol? = DependencyFactory.shared.postsViewModel()
+
+    lazy var cancellables = Set<AnyCancellable>()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dismissAllButton: UIButton!
@@ -61,7 +64,6 @@ private extension PostsViewController {
             guard let postCell = tableView.dequeueReusableCell(withIdentifier: PostCell.identifier) as? PostCell else { return UITableViewCell() }
             postCell.delegate = self
             postCell.setup(with: cellViewModel)
-            cellViewModel.downloadImage()
             return postCell
         }
 
@@ -72,32 +74,32 @@ private extension PostsViewController {
     }
 
     func bindViewModel() {
-        viewModel?.dataSnapshot.bind { [weak self] snapshot in
+        viewModel?.dataSnapshot.sink { [weak self] snapshot in
             guard let snapshot = snapshot else { return }
             let shouldAnimate = self?.tableView.numberOfSections != 0
             self?.dataSource?.apply(snapshot, animatingDifferences: shouldAnimate, completion: nil)
-        }
+        }.store(in: &cancellables)
 
-        viewModel?.dismissAllButtonEnabled.bind { [weak self] dismissAllButtonEnabled in
+        viewModel?.dismissAllButtonEnabled.sink { [weak self] dismissAllButtonEnabled in
             self?.dismissAllButton.isEnabled = dismissAllButtonEnabled
-        }
+        }.store(in: &cancellables)
 
-        viewModel?.isPullingToRefresh.bind { [weak self] isFetching in
+        viewModel?.isPullingToRefresh.sink { [weak self] isFetching in
             self?.refreshControl?.endRefreshing()
-        }
+        }.store(in: &cancellables)
 
-        viewModel?.showEmptyListMessage.bind { [weak self] showEmptyListMessage in
+        viewModel?.showEmptyListMessage.sink { [weak self] showEmptyListMessage in
             self?.emptyListLabel.isHidden = !showEmptyListMessage
-        }
+        }.store(in: &cancellables)
 
-        viewModel?.isLoadingMore.bind { [weak self] isLoadingMore in
+        viewModel?.isLoadingMore.sink { [weak self] isLoadingMore in
             self?.loadingMoreActivityIndicatorView.isHidden = !isLoadingMore
-        }
+        }.store(in: &cancellables)
 
-        viewModel?.alert.bind { [weak self] alertViewController in
+        viewModel?.alert.sink { [weak self] alertViewController in
             guard let alertViewController = alertViewController else { return }
             self?.present(alertViewController, animated: true, completion: nil)
-        }
+        }.store(in: &cancellables)
 
         title = viewModel?.title
         dismissAllButton.setTitle(viewModel?.dismissAllButtonTitle, for: .normal)

@@ -1,0 +1,14 @@
+"media_not_supported" = "No images available";
+"generic_ok" = "Ok";
+"generic_error" = "Error";
+"generic_error_message" = "Something went wrong";
+"generic_warning" = "Warning!";
+"gallery_permission_detail" = "Error with Gallery Permissions";
+"image_download_error" = "Error downloading Image";
+"image_save_error" = "Save Error";
+"image_save_success" = "Saved Successfully";
+"image_added_to_gallery" = "The image was added to your gallery";
+"title_posts" = "Reddit Posts";
+"dismiss_all" = "Dismiss All";
+"pull_to_refresh" = "No new posts! \nPull to refresh!";
+"dismiss_post" = "Dismiss Post";

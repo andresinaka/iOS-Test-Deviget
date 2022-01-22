@@ -9,15 +9,16 @@
 import Foundation
 import UIKit
 import os.log
+import Combine
 
 protocol PostsViewModelProtocol {
 
-    var dataSnapshot: Observable<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?> { get }
-    var dismissAllButtonEnabled: Observable<Bool> { get }
-    var alert: Observable<UIAlertController?> { get }
-    var isPullingToRefresh: Observable<Bool> { get }
-    var isLoadingMore: Observable<Bool> { get }
-    var showEmptyListMessage: Observable<Bool> { get }
+    var dataSnapshot: CurrentValueSubject<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?, Never> { get }
+    var dismissAllButtonEnabled: CurrentValueSubject<Bool, Never> { get }
+    var alert: CurrentValueSubject<UIAlertController?, Never> { get }
+    var isPullingToRefresh: CurrentValueSubject<Bool, Never> { get }
+    var isLoadingMore: CurrentValueSubject<Bool, Never> { get }
+    var showEmptyListMessage: CurrentValueSubject<Bool, Never> { get }
     var isFetching: Bool { get }
 
     var title: String { get }
@@ -33,27 +34,26 @@ protocol PostsViewModelProtocol {
 final class PostsViewModel: PostsViewModelProtocol {
 
     static let postsPerPage = 20
-
-    let title = "Reddit Posts"
-    let dismissAllButtonTitle = "Dismiss All"
-    let emptyListMessage = "No new posts! \nPull to refresh!"
+    let title = "title_posts".localized()
+    let dismissAllButtonTitle = "dismiss_all".localized()
+    let emptyListMessage = "pull_to_refresh".localized()
 
     private var apiService: ApiServiceProtocol
-    private var persistanceService: PersistenceServiceProtocol
+    private var persistenceService: PersistenceServiceProtocol
     private var allPosts: [RedditPost] = []
     private var nextPageAfter: String?
     private(set) var isFetching: Bool = false
 
-    let dataSnapshot: Observable<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?> = Observable(nil)
-    let dismissAllButtonEnabled: Observable<Bool> = Observable(false)
-    let alert: Observable<UIAlertController?> = Observable(nil)
-    let isPullingToRefresh: Observable<Bool> = Observable(false)
-    let showEmptyListMessage: Observable<Bool> = Observable(false)
-    let isLoadingMore: Observable<Bool> = Observable(true)
+    let dataSnapshot: CurrentValueSubject<NSDiffableDataSourceSnapshot<Int, PostCellViewModel>?, Never> = CurrentValueSubject(nil)
+    let dismissAllButtonEnabled: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
+    let alert: CurrentValueSubject<UIAlertController?, Never> = CurrentValueSubject(nil)
+    let isPullingToRefresh: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
+    let showEmptyListMessage: CurrentValueSubject<Bool, Never> = CurrentValueSubject(false)
+    let isLoadingMore: CurrentValueSubject<Bool, Never> = CurrentValueSubject(true)
 
-    init(apiService: ApiServiceProtocol, persistanceService: PersistenceServiceProtocol) {
+    init(apiService: ApiServiceProtocol, persistenceService: PersistenceServiceProtocol) {
         self.apiService = apiService
-        self.persistanceService = persistanceService
+        self.persistenceService = persistenceService
     }
 
     func fetchFirstPage() {
@@ -66,14 +66,14 @@ final class PostsViewModel: PostsViewModelProtocol {
     }
 
     func dismissPost(postCellViewModel: PostCellViewModel) {
-        persistanceService.setHidden(redditPost: postCellViewModel.post)
+        persistenceService.setHidden(redditPost: postCellViewModel.post)
         hidePosts(postCellViewModels: [postCellViewModel])
     }
 
     func dismissAll() {
         let viewModels = dataSnapshot.value?.itemIdentifiers(inSection: 0) ?? []
         for viewModel in viewModels {
-            persistanceService.setHidden(redditPost: viewModel.post)
+            persistenceService.setHidden(redditPost: viewModel.post)
         }
         hidePosts(postCellViewModels: viewModels)
     }
@@ -150,12 +150,16 @@ private extension PostsViewModel {
         return posts.map {
             DependencyFactory.shared.postCellViewModel(post: $0)
         }.filter { [weak self] postCellViewModel -> Bool in
-            self?.persistanceService.isHidden(redditPost: postCellViewModel.post) == false
+            self?.persistenceService.isHidden(redditPost: postCellViewModel.post) == false
         }
     }
 
     func createRequestErrorAlert() {
-        alert.value = UIAlertController.alertWith(title: "Error", message: "Something went wrong", buttonTitle: "Ok")
+        alert.value = UIAlertController.alertWith(
+            title: "generic_error".localized(),
+            message: "generic_error_message".localized(),
+            buttonTitle: "generic_ok".localized()
+        )
     }
 
     func handleEmptyState() {

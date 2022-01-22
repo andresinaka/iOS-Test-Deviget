@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>comments</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@num_comments@</string>
+		<key>num_comments</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>li</string>
+			<key>one</key>
+			<string>1 Comment</string>
+			<key>other</key>
+			<string>%li Comments</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

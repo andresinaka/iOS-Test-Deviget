@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,6 @@
 		E0C151AC2476060D00A14609 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151AB2476060D00A14609 /* AppError.swift */; };
 		E0C151AF2476064700A14609 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151AE2476064700A14609 /* Request.swift */; };
 		E0C151B124760A9200A14609 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151B024760A9200A14609 /* PostsViewModel.swift */; };
-		E0C151B32476152400A14609 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151B22476152400A14609 /* Observable.swift */; };
 		E0C151B62476183100A14609 /* PostDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0C151B52476183100A14609 /* PostDetailViewController.storyboard */; };
 		E0C151B82476185A00A14609 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151B72476185A00A14609 /* PostDetailViewController.swift */; };
 		E0C151BA2476188100A14609 /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151B92476188100A14609 /* PostDetailViewModel.swift */; };
@@ -47,6 +46,10 @@
 		E0C151F8247985AB00A14609 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F7247985AB00A14609 /* Array.swift */; };
 		E0C151FA2479961700A14609 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151F92479961700A14609 /* OSLog.swift */; };
 		E0C151FC2479A72900A14609 /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C151FB2479A72900A14609 /* DependencyFactory.swift */; };
+		E0C7CEBB279C439300D43E03 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E0C7CEBA279C439300D43E03 /* Kingfisher */; };
+		E0C7CEBF279C46D300D43E03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0C7CEC1279C46D300D43E03 /* Localizable.strings */; };
+		E0C7CEC4279C488E00D43E03 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEC3279C488E00D43E03 /* L10n.swift */; };
+		E0C7CEC8279C4F3200D43E03 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = E0C7CECA279C4F3200D43E03 /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +80,6 @@
 		E0C151AB2476060D00A14609 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E0C151AE2476064700A14609 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E0C151B024760A9200A14609 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
-		E0C151B22476152400A14609 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		E0C151B52476183100A14609 /* PostDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetailViewController.storyboard; sourceTree = "<group>"; };
 		E0C151B72476185A00A14609 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		E0C151B92476188100A14609 /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +106,11 @@
 		E0C151F7247985AB00A14609 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		E0C151F92479961700A14609 /* OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		E0C151FB2479A72900A14609 /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
+		E0C7CEC0279C46D300D43E03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0C7CEC2279C475900D43E03 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0C7CEC3279C488E00D43E03 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		E0C7CEC9279C4F3200D43E03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		E0C7CECB279C4F4700D43E03 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = es; path = es.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C7CEBB279C439300D43E03 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +153,7 @@
 		E0C151772475E31800A14609 /* Reddit */ = {
 			isa = PBXGroup;
 			children = (
+				E0C7CEC5279C4EF900D43E03 /* L10n */,
 				E0C151CF2477309300A14609 /* Extensions */,
 				E0C151A92475F11200A14609 /* Model */,
 				E0C151A02475ECB500A14609 /* ViewControllers */,
@@ -156,7 +165,6 @@
 				E0C151832475E31B00A14609 /* LaunchScreen.storyboard */,
 				E0C151862475E31B00A14609 /* Info.plist */,
 				E0C151AB2476060D00A14609 /* AppError.swift */,
-				E0C151B22476152400A14609 /* Observable.swift */,
 				E0C151FB2479A72900A14609 /* DependencyFactory.swift */,
 			);
 			path = Reddit;
@@ -318,6 +326,16 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		E0C7CEC5279C4EF900D43E03 /* L10n */ = {
+			isa = PBXGroup;
+			children = (
+				E0C7CEC1279C46D300D43E03 /* Localizable.strings */,
+				E0C7CEC3279C488E00D43E03 /* L10n.swift */,
+				E0C7CECA279C4F3200D43E03 /* Localizable.stringsdict */,
+			);
+			path = L10n;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +352,9 @@
 			dependencies = (
 			);
 			name = Reddit;
+			packageProductDependencies = (
+				E0C7CEBA279C439300D43E03 /* Kingfisher */,
+			);
 			productName = Reddit;
 			productReference = E0C151752475E31800A14609 /* Reddit.app */;
 			productType = "com.apple.product-type.application";
@@ -382,8 +403,12 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = E0C1516C2475E31800A14609;
+			packageReferences = (
+				E0C7CEB9279C439300D43E03 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = E0C151762475E31800A14609 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -400,10 +425,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C151852475E31B00A14609 /* LaunchScreen.storyboard in Resources */,
+				E0C7CEBF279C46D300D43E03 /* Localizable.strings in Resources */,
 				E0C151A52475ED9E00A14609 /* PostsViewController.storyboard in Resources */,
 				E0C151822475E31B00A14609 /* Assets.xcassets in Resources */,
 				E0C151802475E31800A14609 /* Main.storyboard in Resources */,
 				E0C151B62476183100A14609 /* PostDetailViewController.storyboard in Resources */,
+				E0C7CEC8279C4F3200D43E03 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C7CEC4279C488E00D43E03 /* L10n.swift in Sources */,
 				E0C1517D2475E31800A14609 /* SplitViewController.swift in Sources */,
 				E0C151BC2477179400A14609 /* RedditTopResponse.swift in Sources */,
 				E0C151AF2476064700A14609 /* Request.swift in Sources */,
@@ -442,7 +470,6 @@
 				E0C151E52478251C00A14609 /* PersistenceService.swift in Sources */,
 				E0C151EE24782DD800A14609 /* UserDefaultsService.swift in Sources */,
 				E0C151BE2477181200A14609 /* RedditPost.swift in Sources */,
-				E0C151B32476152400A14609 /* Observable.swift in Sources */,
 				E0C151A32475ECEA00A14609 /* PostsViewController.swift in Sources */,
 				E0C151A82475EFA700A14609 /* PostCell.swift in Sources */,
 				E0C151D32477327D00A14609 /* PostCellViewModel.swift in Sources */,
@@ -493,6 +520,24 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		E0C7CEC1279C46D300D43E03 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0C7CEC0279C46D300D43E03 /* en */,
+				E0C7CEC2279C475900D43E03 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E0C7CECA279C4F3200D43E03 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0C7CEC9279C4F3200D43E03 /* en */,
+				E0C7CECB279C4F4700D43E03 /* es */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -500,6 +545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -560,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -719,6 +766,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0C7CEB9279C439300D43E03 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0C7CEBA279C439300D43E03 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0C7CEB9279C439300D43E03 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E0C1516D2475E31800A14609 /* Project object */;
 }

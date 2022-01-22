@@ -11,7 +11,7 @@ import Foundation
 final class DependencyFactory {
 
     let apiService = ApiService()
-    let persistance = PersistenceService()
+    let persistence = PersistenceService()
 
     // Not the biggest fan of having singletons but for the size and type of app this is ok.
     static let shared = DependencyFactory()
@@ -19,14 +19,14 @@ final class DependencyFactory {
     private init() { }
 
     func postsViewModel() -> PostsViewModel {
-        PostsViewModel(apiService: self.apiService, persistanceService: self.persistance)
+        PostsViewModel(apiService: apiService, persistenceService: persistence)
     }
 
     func postDetailViewModel(post: RedditPost) -> PostDetailViewModel {
-        PostDetailViewModel(apiService: self.apiService, post: post)
+        PostDetailViewModel(post: post)
     }
 
     func postCellViewModel(post: RedditPost) -> PostCellViewModel {
-        PostCellViewModel(apiService: self.apiService, persistanceService: self.persistance, post: post)
+        PostCellViewModel(apiService: apiService, persistenceService: persistence, post: post)
     }
 }

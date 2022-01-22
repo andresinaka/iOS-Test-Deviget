@@ -26,14 +26,15 @@
 ### Notes
 
 - I followed the design of `iphonedetail.png` and `iphone.png`
-- The architecture choosen for the App is MVVM. For binding I'm using a custom made `Observable` to avoid integrating a heavy library just for that. I thought about using combine but I have no experience and it was going to take me more time than the available.
+- The architecture choosen for the App is MVVM. I'm using combine for the bindings between views and viewModels.
 - `UITableView` data source is a `UITableViewDiffableDataSource` and changes on the dataSource are made with `NSDiffableDataSourceSnapshot`. Super nice Api.
 - Requests to server are made with: `URLSession`
 - Using `Decodable` for `JSON` -> `Model`
 - Added some tests but it could be tested even more. Tested models, ViewModels and Service. All the `ViewModels` and `Service` implement a protocol so it's easy to Mock/Stub them for testing.
+- I used `XCTest` for testing. In real world app I would have used `Quick/Nimble`
 - The state of the `hidden`/`read` is saved on `UserDefaults`. In a real world app I would have choosen something different. (`SQLite` with `SQLite.swift` or `CoreData`) but I think this is an overkill for the scenario.
-- There were no mention to localization so I didn't localize the app which I would have done in real life.
 - I didn't log much but I left `os_log` ready to be used.
+- The app is localized for Spanish and English. In a real world project I would use something to generate enums (SwiftGen) from the keys to avoid having strings in the code that I do not like. So instead of something like `"my_key".localized()` I would have `myKey.localized`.
 
 ### Sample app running on iPhone XS:
 

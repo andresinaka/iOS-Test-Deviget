@@ -11,10 +11,11 @@ import UIKit
 
 protocol ApiServiceProtocol {
     @discardableResult
-    func execute<T: Decodable>(type: T.Type, request: RequestProtocol, completion: @escaping (Result<T?, Error>) -> Void) -> URLSessionDataTask?
-
-    @discardableResult
-    func downloadImage(imageURL: URL, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask?
+    func execute<T: Decodable>(
+        type: T.Type,
+        request: RequestProtocol,
+        completion: @escaping (Result<T?, Error>) -> Void
+    ) -> URLSessionDataTask?
 }
 
 struct ApiService: ApiServiceProtocol {
@@ -26,7 +27,12 @@ struct ApiService: ApiServiceProtocol {
     }
 
     @discardableResult
-    func execute<T: Decodable>(type: T.Type, request: RequestProtocol, completion: @escaping (Result<T?, Error>) -> Void) -> URLSessionDataTask? {
+    func execute<T: Decodable>(
+        type: T.Type,
+        request: RequestProtocol,
+        completion: @escaping (Result<T?, Error>) -> Void
+    ) -> URLSessionDataTask? {
+
         guard let urlRequest = request.urlRequest else {
             completion(Result.failure(AppError.generic("Missing urlRequest")))
             return nil
@@ -65,23 +71,5 @@ struct ApiService: ApiServiceProtocol {
 
         dataTask.resume()
         return dataTask
-    }
-
-    @discardableResult
-    func downloadImage(imageURL: URL, completion: @escaping (Result<UIImage, Error>) -> Void) -> URLSessionDataTask? {
-
-        return session.dataTask(with: imageURL) { (data, urlResponse, error) in
-
-            let completeOnMainThread: (Result<UIImage, Error>) -> Void = { (result: Result) in
-                DispatchQueue.main.async { completion(result) }
-            }
-
-            guard let data = data, let image = UIImage(data: data) else {
-                completeOnMainThread(.failure(AppError.generic("Failed to download Image")))
-                return
-            }
-
-            completeOnMainThread(.success(image))
-        }
     }
 }

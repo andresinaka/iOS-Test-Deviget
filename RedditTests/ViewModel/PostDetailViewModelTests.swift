@@ -22,7 +22,7 @@ class PostDetailViewModelTests: XCTestCase {
             postHint: .image
         )
 
-        let postCellViewModel = PostDetailViewModel(apiService: ApiServiceMock(), post: redditPost)
+        let postCellViewModel = PostDetailViewModel(post: redditPost)
         XCTAssertEqual(postCellViewModel.title, "Title")
         XCTAssertEqual(postCellViewModel.authorName, "Author")
         XCTAssertEqual(postCellViewModel.mediaNotSupportedText, "No images available")
@@ -41,7 +41,7 @@ class PostDetailViewModelTests: XCTestCase {
             postHint: .notSupported
         )
 
-        let postCellViewModel = PostDetailViewModel(apiService: ApiServiceMock(), post: redditPost)
+        let postCellViewModel = PostDetailViewModel(post: redditPost)
         XCTAssertEqual(postCellViewModel.title, "Title")
         XCTAssertEqual(postCellViewModel.authorName, "Author")
         XCTAssertFalse(postCellViewModel.showMedia)

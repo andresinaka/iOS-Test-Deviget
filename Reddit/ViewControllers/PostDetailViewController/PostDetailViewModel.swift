@@ -9,15 +9,18 @@
 import Foundation
 import UIKit
 import Photos
+import Combine
+import Kingfisher
 
 protocol PostDetailViewModelProtocol {
     var authorName: String { get }
     var title: String { get }
     var showMedia: Bool { get }
     var mediaNotSupportedText: String { get }
-    var postImage: Observable<UIImage?> { get }
-    var postImageLoading: Observable<Bool> { get }
-    var alert: Observable<UIAlertController?> { get }
+    var postImage: CurrentValueSubject<UIImage?, Never> { get }
+    var postImageLoading: CurrentValueSubject<Bool, Never> { get }
+    var alert: CurrentValueSubject<UIAlertController?, Never> { get }
+    var imageDownloadProgress: CurrentValueSubject<String, Never> { get }
 
     func saveImage()
 }
@@ -27,31 +30,47 @@ final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
     let title: String
     let showMedia: Bool
     let mediaNotSupportedText: String
-    let postImage: Observable<UIImage?>
-    let alert: Observable<UIAlertController?>
-    let postImageLoading: Observable<Bool> = Observable(true)
+    let postImage: CurrentValueSubject<UIImage?, Never>
+    let alert: CurrentValueSubject<UIAlertController?, Never>
+    let postImageLoading: CurrentValueSubject<Bool, Never> = CurrentValueSubject(true)
+    let imageDownloadProgress = CurrentValueSubject<String, Never>("")
 
-    init(apiService: ApiServiceProtocol, post: RedditPost) {
+    init(post: RedditPost) {
         authorName = post.author
         title = post.title
         showMedia = post.postHint == .image
-        mediaNotSupportedText = "No images available"
-        postImage = Observable(nil)
-        alert = Observable(nil)
+        mediaNotSupportedText = "media_not_supported".localized()
+        postImage = CurrentValueSubject(nil)
+        alert = CurrentValueSubject(nil)
 
         super.init()
 
         guard let url = post.url, showMedia else { return }
         postImageLoading.value = true
-        apiService.downloadImage(imageURL: url) { [weak self] result in
-            self?.postImageLoading.value = false
-            switch result {
-            case .success(let image):
-                self?.postImage.value = image
-            case .failure:
-                self?.createAlert(title: "Error", message: "Error downloading Image")
+
+        let resource = ImageResource(downloadURL: url)
+        KingfisherManager.shared.retrieveImage(
+            with: resource,
+            options: nil,
+            progressBlock: { [weak self] receivedSize, totalSize in
+                let bytesToMb: Float = 1/1024/2024
+                let received = String(format: "%.3f", Float(receivedSize)*bytesToMb)
+                let total = String(format: "%.3f", Float(totalSize)*bytesToMb)
+
+                self?.imageDownloadProgress.value = "\(received)/\(total) MB"
+            },
+            downloadTaskUpdated: nil) { [weak self] result in
+                self?.postImageLoading.value = false
+                switch result {
+                    case .success(let value):
+                        self?.postImage.value = value.image
+                    case .failure:
+                        self?.createAlert(
+                            title: "generic_error".localized(),
+                            message: "image_download_error".localized()
+                        )
+                }
             }
-        }?.resume()
     }
 
     func saveImage() {
@@ -66,8 +85,8 @@ final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
 
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         createAlert(
-            title: error != nil ? "Save Error" : "Saved Successfully",
-            message: error != nil ? error?.localizedDescription ?? "" : "The image was added to your gallery"
+            title: error != nil ? "image_save_error".localized() : "image_save_success".localized(),
+            message: error != nil ? error?.localizedDescription ?? "" : "image_added_to_gallery".localized()
         )
     }
 }
@@ -75,12 +94,18 @@ final class PostDetailViewModel: NSObject, PostDetailViewModelProtocol {
 private extension PostDetailViewModel {
 
     func requestPhotosAuthorization() {
+        let handleErrorStatus = { [weak self] (status: PHAuthorizationStatus) in
+            guard status == .denied || status == .restricted else { return }
+            self?.createAlert(
+                title: "generic_warning".localized(),
+                message: "gallery_permission_detail".localized()
+            )
+        }
+
         let status = PHPhotoLibrary.authorizationStatus()
         if status == .notDetermined {
             PHPhotoLibrary.requestAuthorization { [weak self] status in
-                if status == .denied {
-                    self?.createAlert(title: "Warning!", message: "Error with Gallery Permissions")
-                }
+                handleErrorStatus(status)
 
                 if status == .authorized {
                     self?.saveImage()
@@ -88,14 +113,16 @@ private extension PostDetailViewModel {
             }
         }
 
-        if status == .denied || status == .restricted {
-            createAlert(title: "Warning!", message: "Error with Gallery Permissions")
-        }
+        handleErrorStatus(status)
     }
 
     func createAlert(title: String?, message: String?) {
         DispatchQueue.main.async { [weak self] in
-            let alert = UIAlertController.alertWith(title: title, message: message, buttonTitle: "Ok")
+            let alert = UIAlertController.alertWith(
+                title: title,
+                message: message,
+                buttonTitle: "generic_ok".localized()
+            )
             self?.alert.value = alert
         }
     }

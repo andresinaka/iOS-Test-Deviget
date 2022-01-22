@@ -24,7 +24,7 @@ class PostCellViewModelTests: XCTestCase {
             postHint: .image
         )
 
-        var postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistanceService: PersistenceServiceMock(), post: redditPost)
+        var postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistenceService: PersistenceServiceMock(), post: redditPost)
         XCTAssertEqual(postCellViewModel.title, "Title")
         XCTAssertEqual(postCellViewModel.authorName, "Author")
         XCTAssertEqual(postCellViewModel.commentsText, "140 Comments")
@@ -33,7 +33,7 @@ class PostCellViewModelTests: XCTestCase {
         XCTAssertTrue(postCellViewModel.showThumbnail)
 
         redditPost.numComments = 1
-        postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistanceService: PersistenceServiceMock(), post: redditPost)
+        postCellViewModel = PostCellViewModel(apiService: ApiServiceMock(), persistenceService: PersistenceServiceMock(), post: redditPost)
         XCTAssertEqual(postCellViewModel.commentsText, "1 Comment")
     }
 }

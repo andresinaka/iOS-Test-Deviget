@@ -11,7 +11,7 @@ import XCTest
 
 class PersistenceServiceTests: XCTestCase {
 
-    var persistanceService: PersistenceService!
+    var persistenceService: PersistenceService!
     let reddintPost = RedditPost(
         id: "a-key",
         title: "title",
@@ -24,18 +24,18 @@ class PersistenceServiceTests: XCTestCase {
     )
 
     override func setUpWithError() throws {
-        persistanceService = PersistenceService(userDefaults: UserDefaultsServiceMock())
+        persistenceService = PersistenceService(userDefaults: UserDefaultsServiceMock())
     }
 
     func testHidden() throws {
-        XCTAssertFalse(persistanceService.isHidden(redditPost: reddintPost))
-        persistanceService.setHidden(redditPost: reddintPost)
-        XCTAssertTrue(persistanceService.isHidden(redditPost: reddintPost))
+        XCTAssertFalse(persistenceService.isHidden(redditPost: reddintPost))
+        persistenceService.setHidden(redditPost: reddintPost)
+        XCTAssertTrue(persistenceService.isHidden(redditPost: reddintPost))
     }
 
     func testRead() throws {
-        XCTAssertFalse(persistanceService.isRead(redditPost: reddintPost))
-        persistanceService.setRead(redditPost: reddintPost)
-        XCTAssertTrue(persistanceService.isRead(redditPost: reddintPost))
+        XCTAssertFalse(persistenceService.isRead(redditPost: reddintPost))
+        persistenceService.setRead(redditPost: reddintPost)
+        XCTAssertTrue(persistenceService.isRead(redditPost: reddintPost))
     }
 }
